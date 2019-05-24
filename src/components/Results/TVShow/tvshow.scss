@@ -1,0 +1,82 @@
+@import "../../../app.scss";
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: $second-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .tvshow-wrapper {
+    border: 1px solid blue;
+    width: 70vw;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .tvshow-info-cont-a {
+      // border: 1px solid black;
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      font-family: $second-font;
+
+      img {
+        max-width: 12vw;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      }
+
+      ul {
+        list-style: none;
+        text-align: end;
+
+        #tv-show-name {
+          font-family: $second-font;
+          font-weight: bold;
+          font-size: 2em;
+        }
+
+        #tv-show-dates {
+          font-size: 1.3em;
+        }
+      }
+    }
+
+    .tvshow-info-cont-b {
+      // border: 1px solid black;
+      margin-top: 50px;
+      width: 60vw;
+      height: 41vh;
+      border-radius: 10px;
+      // margin-left: 10px;
+      // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      // background-color: $first-color;
+
+      .tab-cont {
+        // border: 1px solid black;
+        height: 3vh;
+        background-color: $fifth-color;
+        border-radius: 5px;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+
+        .tab {
+          border: none;
+          margin-left: 15px;
+          // border-radius: 5px;
+          background-color: $fourth-color;
+          color: $second-color;
+          font-family: $second-font;
+          height: 2vh;
+          clip-path: polygon(81% 0, 100% 43%, 100% 100%, 0 100%, 0 0);
+        }
+      }
+    }
+  }
+}
