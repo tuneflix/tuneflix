@@ -5,10 +5,10 @@ function Search() {
   return (
     <div className="background">
       <div className="header">
-        <h1>TuneFlix</h1>
       </div>
       <div className="body">
-        <p>Welcome to our page!</p>
+        <h1>TuneFlix</h1>
+        <input className='userInput' onfocus="this.placeholder = ''" placeholder="Search TuneFlix for Movie or TV Series"/>
       </div>
     </div>
   );
