@@ -1,0 +1,25 @@
+@import "../app.scss";
+
+.background {
+  width: 100vw;
+  height: 92vw;
+  background-color: $second-color;
+
+  .header {
+    width: 100vw;
+    height: 8vh;
+    background-color: $third-color;
+    h1 {
+      font-family: $first-font;
+      font-size: 2em;
+      font-weight: bolder;
+      margin: 0;
+      // font-style: italic;
+    }
+  }
+  .body {
+    p {
+      font-family: $second-font;
+    }
+  }
+}
