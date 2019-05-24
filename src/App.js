@@ -1,14 +1,17 @@
 import React from "react";
-import "./app.scss";
-// import "./reset.css";
+import Header from "./components/Shared/Header/Header";
+import { HashRouter, Route } from "react-router-dom";
+import routes from "./routes";
 import Search from "./components/Search";
-import TVShow from "./components/Results/TVShow/TVShow";
 
 function App() {
   return (
     <div className="App">
-      {/* <Search /> */}
-      <TVShow />
+      <HashRouter>
+        <Route exact path="/" component={Search} />
+        <Header />
+        {routes}
+      </HashRouter>
     </div>
   );
 }
