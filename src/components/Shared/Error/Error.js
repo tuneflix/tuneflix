@@ -1,8 +1,11 @@
 import React from "react";
+import "./Error.scss";
+
+
 function Error() {
   return (
     <div className="Error">
-        Page not Found
+      
     </div>
   );
 }
