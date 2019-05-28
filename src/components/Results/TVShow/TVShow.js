@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./tvshow.scss";
 import Header from "../../Shared/Header/Header";
+import { connect } from "react-redux";
+import { getTvShows } from "../../../ducks/resultsReducer";
+import axios from "axios";
 
 function TVShow(props) {
+  console.log(props);
+
+  useEffect(() => {
+    axios
+      .get("/api/image")
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+
+    // console.log("hit");
+    // props.getTvShows("breaking bad").then(res => {
+    //   console.log(res);
+    // });
+  }, []);
+
   return (
     <div className="wrapper">
       <Header />
@@ -31,4 +48,12 @@ function TVShow(props) {
   );
 }
 
-export default TVShow;
+const mapStateToProps = state => {
+  return {
+    results: state.results
+  };
+};
+export default connect(
+  mapStateToProps,
+  { getTvShows }
+)(TVShow);

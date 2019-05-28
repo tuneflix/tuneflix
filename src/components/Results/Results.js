@@ -4,11 +4,10 @@ import "./results.scss";
 function Results() {
   return (
     <div className="background">
-      <div className="header">
-    </div>
-        <div className="results">
-            <div className="movResults">  
-                <h3>MOVIE RESULTS</h3>
+      <div className="header" />
+      <div className="results">
+        <div className="movResults">
+          {/* <h3>MOVIE RESULTS</h3>
                 <ul>
                     <li><a>Matrix</a></li>
                     <li>Released: 1999</li>
@@ -31,9 +30,9 @@ function Results() {
                 <ul>
                     <li><a>Matrix Whatever</a></li>
                     <li>Aired: 2011-2014</li>
-                </ul>
-            </div>
+                </ul> */}
         </div>
+      </div>
     </div>
   );
 }
