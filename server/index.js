@@ -26,6 +26,6 @@ app.get(
 );
 
 //IMDB Endpoints
-app.get("/api/image");
+app.get("/api/imdb/:userInput", rc.getIMDB);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
