@@ -54,3 +54,15 @@ h3 {
   text-align: center;
   font-size: 2em;
 }
+
+button {
+  border: none;
+  height: 4vh;
+  border-radius: 10px;
+  background-color: $fourth-color;
+  font-family: $second-font;
+  font-size: 1em;
+  color: $second-color;
+  margin-top: 2vw;
+  margin-left: 55vw;
+}

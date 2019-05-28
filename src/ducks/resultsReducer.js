@@ -17,9 +17,7 @@ export const GET_IMAGE = "GET_IMAGE";
 export function getMovies(userInput) {
   return {
     type: GET_MOVIE,
-    payload: axios.get(
-      `https://[ENDPOINT].api.tunefind.com/api/v2/movie/${userInput}`
-    )
+    payload: axios.get(`/api/movie/:${userInput}`)
   };
 }
 
@@ -47,28 +45,27 @@ export function getImage(userInput) {
 }
 
 export default function reducer(state = initialState, action) {
-  const { type, payload } = action;
-  switch (type) {
+  
+  switch (action.type) {
     case `${GET_MOVIE}_FULLFILLED`:
-      // I dont know how payload.data ends. need to test on real api
-      console.log(`GET_MOVIE ${payload.data}`);
+      console.log(action);
       return {
         ...state,
-        movResults: payload.data
+        movResults: action.payload.data
       };
     case `${GET_TV_SHOW}_FULLFILLED`:
       // I dont know how payload.data ends. need to test on real api
-      console.log(`GET_TV_SHOW ${payload.data}`);
+      console.log(`GET_TV_SHOW ${action.payload.data}`);
       return {
         ...state,
-        tvShowResults: payload.data
+        tvShowResults: action.payload.data
       };
     case `${GET_IMAGE}_FULLFILLED`:
       // I dont know how payload.data ends. need to test on real api
-      console.log(`GET_IMAGE ${payload.data}`);
+      console.log(`GET_IMAGE ${action.payload.data}`);
       return {
         ...state,
-        tvShowResults: payload.data
+        tvShowResults: action.payload.data
       };
     default:
       return state;
