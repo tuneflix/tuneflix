@@ -17,14 +17,14 @@ const GET_IMAGE = "GET_IMAGE"
 export function getMovies(userInput){
    return {
     type: GET_MOVIE,
-    payload: axios.get(`https://[ENDPOINT].api.tunefind.com/api/v2/show/${userInput}`)
+    payload: axios.get(`https://cors-anywhere.herokuapp.com/https://76b663e5.api.tunefind.com/api/v2/movie/${userInput}`)
    }
 }
 
 export function getTvShows(userInput){
    return {
     type: GET_TV_SHOW,
-    payload: axios.get(`https://[ENDPOINT].api.tunefind.com/api/v2/movie/${userInput}`)
+    payload: axios.get(`https://76b663e5.api.tunefind.com/api/v2/show/${userInput}`)
    }
 }
 
@@ -32,9 +32,8 @@ export function getImage(userInput){
    return {
     type: GET_IMAGE,
     payload: axios.get(`https://movie-database-imdb-alternative.p.rapidapi.com/?page=1&r=json&s=${userInput}`)
-   }
 }
-
+}
 
 export default function reducer(state= initialState, action){
     const {type, payload} = action;

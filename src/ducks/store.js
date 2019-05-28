@@ -4,7 +4,7 @@ import promise from "redux-promise-middleware"
 import resultsReducer from "./resultsReducer.js"
 
 const rootReducer = combineReducers({
-    resultsReducer,
+    result: resultsReducer,
  
 })
 
