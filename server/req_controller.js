@@ -162,5 +162,44 @@ module.exports = {
       });
     };
     results().then(body => res.status(200).json(body));
+  },
+  getIMDB: (req, res) => {
+    const { userInput } = req.params;
+    let searchTerm = userInput.split("-").join("+");
+    const results = () => {
+      return new Promise((resolve, reject) => {
+        var req = unirest(
+          "GET",
+          "https://movie-database-imdb-alternative.p.rapidapi.com/"
+        );
+
+        req.query({
+          page: "1",
+          r: "json",
+          s: searchTerm
+        });
+
+        req.headers({
+          "cache-control": "no-cache",
+          Connection: "keep-alive",
+          "accept-encoding": "gzip, deflate",
+          Host: "movie-database-imdb-alternative.p.rapidapi.com",
+          "Postman-Token":
+            "8a3d4746-b035-4f46-82d5-8c5b7cfe73e1,12bd3da8-b423-4d04-a72e-eacca52e7f52",
+          "Cache-Control": "no-cache",
+          Accept: "*/*",
+          "User-Agent": "PostmanRuntime/7.11.0",
+          "X-RapidAPI-Key":
+            "56854a6fdemsh22582e2b147f73dp1bbf44jsnbeefa430086c",
+          "X-RapidAPI-Host": "movie-database-imdb-alternative.p.rapidapi.com"
+        });
+
+        req.end(function(res) {
+          if (res.error) throw new Error(res.error);
+          return resolve(res.body.Search);
+        });
+      });
+    };
+    results().then(body => res.status(200).json(body));
   }
 };
