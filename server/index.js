@@ -13,11 +13,19 @@ const rc = require("./req_controller.js");
 
 app.use(express.json());
 
-//TuneFind Endpoints
+//TUNEFIND
+//--movie endpoints
 app.get("/api/movie/:userInput", rc.getMovie);
-app.get("/api/songs/movie/:id");
+app.get("/api/songs/movie/:movieName", rc.getMovieSongs);
+//--tv show endpoints
+app.get("/api/tvshow/:userInput", rc.getTvShow);
+app.get("/api/tvshow/:tvshowName/season/:seasonNum", rc.getTvShowSeason);
+app.get(
+  "/api/tvshow/:tvshowName/season/:seasonNum/episode/:episodeID",
+  rc.getTvShowEpisode
+);
 
 //IMDB Endpoints
-app.get("/api/image", rc.getImage);
+app.get("/api/image");
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
