@@ -1,19 +1,30 @@
 import React from "react";
 import Header from "./components/Shared/Header/Header";
-import { HashRouter, Route } from "react-router-dom";
+import { HashRouter, withRouter} from "react-router-dom";
 import routes from "./routes";
-import Search from "./components/Search";
 
-function App() {
-  return (
-    <div className="App">
+
+class App extends React.Component{
+  render(){
+    let header = '';
+
+    if (this.props.location.pathname !== '/') {
+      header = <Header />;
+    }
+
+
+    return (
       <HashRouter>
-        <Route exact path="/" component={Search} />
-        <Header />
-        {routes}
+          <div className="App">
+                
+                  {header}
+                  {routes}
+              
+          </div>
       </HashRouter>
-    </div>
-  );
+    );
+
+  }
 }
 
-export default App;
+export default withRouter(App);
