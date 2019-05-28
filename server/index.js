@@ -14,7 +14,8 @@ const rc = require("./req_controller.js");
 app.use(express.json());
 
 //TuneFind Endpoints
-app.get("/api/movie", rc.getMovie);
+app.get("/api/movie/:userInput", rc.getMovie);
+app.get("/api/songs/movie/:id");
 
 //IMDB Endpoints
 app.get("/api/image", rc.getImage);
