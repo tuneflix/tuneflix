@@ -2,6 +2,7 @@ const unirest = require("unirest");
 
 module.exports = {
   getMovie: (req, res) => {
+    console.log("hit")
     const { userInput } = req.params;
     const results = () => {
       return new Promise((resolve, reject) => {

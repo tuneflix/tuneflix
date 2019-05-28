@@ -24,14 +24,7 @@ export function getMovies(userInput) {
 export function getTvShows(userInput) {
   return {
     type: GET_TV_SHOW,
-    payload: axios
-      .get(`https://76b663e5.api.tunefind.com/api/v2/show/${userInput}`, {
-        auth: {
-          username: "76b663e5aa154beb16c3d3f67313a49e",
-          password: "8c4e5d0e527cd3bd9af2a7dd45f3fbd3"
-        }
-      })
-      .then(res => console.log(res))
+    payload: axios.get(`/api/tvshow/:${userInput}`)
   };
 }
 
@@ -46,23 +39,21 @@ export function getImage(userInput) {
 
 export default function reducer(state = initialState, action) {
   
+ 
   switch (action.type) {
-    case `${GET_MOVIE}_FULLFILLED`:
-      console.log(action);
+    case `${GET_MOVIE}_FULFILLED`:
       return {
         ...state,
-        movResults: action.payload.data
+        movResults: action.payload.data 
       };
-    case `${GET_TV_SHOW}_FULLFILLED`:
-      // I dont know how payload.data ends. need to test on real api
-      console.log(`GET_TV_SHOW ${action.payload.data}`);
+    case `${GET_TV_SHOW}_FULFILLED`:
+      console.log(action);
       return {
         ...state,
         tvShowResults: action.payload.data
       };
     case `${GET_IMAGE}_FULLFILLED`:
-      // I dont know how payload.data ends. need to test on real api
-      console.log(`GET_IMAGE ${action.payload.data}`);
+      // console.log(`GET_IMAGE ${action.payload.data}`);
       return {
         ...state,
         tvShowResults: action.payload.data
