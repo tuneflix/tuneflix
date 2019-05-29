@@ -29,7 +29,9 @@ handleClick = () => {
     const {userInput} = this.state;
     this.props.getMovies(userInput);
     this.props.getTvShows(userInput);
-    this.props.getImage(userInput);
+   
+    
+    
 }
 
 render() {

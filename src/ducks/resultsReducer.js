@@ -68,6 +68,7 @@ export function getTvShowEpisode(seasonNum, episodeID) {
 }
 export function getImage(userInput) {
   return {
+    
     type: GET_IMAGE,
     payload: axios.get(`/api/imdb/${userInput}`)
   };
