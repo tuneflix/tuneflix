@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux"
-import {getImage, getMovies,getMovieSongs} from "../../../ducks/resultsReducer"
+import {getImage, getTvShows, getMovies} from "../../../ducks/resultsReducer"
+import axios from 'axios'
+import unirest from 'unirest';
+import SongCard from '../../Shared/SongCard/SongCard'
 
 
 class Movie extends React.Component {
@@ -22,7 +25,7 @@ class Movie extends React.Component {
     // console.log(image)
     return (
       <div className="Error" style ={{marginTop: "40vh", marginLeft: "20vw"}}>
-          Coming Soon
+          <SongCard />
       </div>
     );
 

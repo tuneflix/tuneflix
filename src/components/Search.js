@@ -3,7 +3,11 @@ import "./search.scss";
 import axios from 'axios';
 import {connect} from "react-redux"
 import {getMovies,getTvShows,getImage} from "../ducks/resultsReducer"
+<<<<<<< HEAD
 
+=======
+import {Link} from 'react-router-dom';
+>>>>>>> master
 
 class Search extends Component {
 
@@ -22,7 +26,6 @@ class Search extends Component {
 }
 
 handleInput = e => {
-  
   this.setState({userInput: e.target.value})
 }
 
@@ -37,18 +40,20 @@ handleClick = () => {
 render() {
   const{ movResults, tvShowResults,image} = this.props.resultsReducer
   // console.log(movResults)
-  console.log(tvShowResults)
+  // console.log(tvShowResults)
   // console.log(image)
   return (
+  <div className='Search'>
     <div className="background">
       <div className="header">
       </div>
       <div className="body">
         <h1>TuneFlix</h1>
         <input onKeyPress={this.handleEnter} onChange={this.handleInput} className='userInput'  placeholder="Search TuneFlix for Movie or TV Series"/>
-        <button onClick={this.handleClick}>Search</button>
+        <Link to='/results'><button onClick={this.handleClick}>Search</button></Link>
       </div>
     </div>
+  </div>
   );
 }
 }
