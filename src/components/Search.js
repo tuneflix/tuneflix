@@ -3,11 +3,7 @@ import "./search.scss";
 import axios from 'axios';
 import {connect} from "react-redux"
 import {getMovies,getTvShows,getImage} from "../ducks/resultsReducer"
-<<<<<<< HEAD
-
-=======
 import {Link} from 'react-router-dom';
->>>>>>> master
 
 class Search extends Component {
 
@@ -33,6 +29,7 @@ handleClick = () => {
     const {userInput} = this.state;
     this.props.getMovies(userInput);
     this.props.getTvShows(userInput);
+   
     
     
 }

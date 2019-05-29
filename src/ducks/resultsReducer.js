@@ -23,41 +23,42 @@ export const GET_IMAGE = "GET_IMAGE";
 export function getMovies(userInput) {
   return {
     type: GET_MOVIE,
-    payload: axios.get(`/api/movie/:${userInput}`)
+    payload: axios.get(`/api/movie/${userInput}`)
   };
 }
 
 export function getMovieSongs(movieName) {
   return{
     type: GET_MOVIE_SONG,
-    payload: axios.get(`/api/songs/movie/:${movieName}`)
+    payload: axios.get(`/api/songs/movie/${movieName}`)
   }
 }
 
 export function getTvShows(userInput) {
   return {
     type: GET_TV_SHOW,
-    payload: axios.get(`/api/tvshow/:${userInput}`)
+    payload: axios.get(`/api/tvshow/${userInput}`)
   };
 }
 
 export function getTvShowSeason (tvshowName,seasonNum){
   return {
     type: GET_TV_SHOW_SEASONS ,
-    payload : axios.get(`/api/tvshow/:${tvshowName}/season/:${seasonNum}`)
+    payload : axios.get(`/api/tvshow/${tvshowName}/season/:${seasonNum}`)
   }
 }
 
 export function getTvShowEpisode(seasonNum, episodeID){
   return {
     type:GET_TV_SHOW_EPISODE,
-    payload : axios.get(`/api/tvshow/:tvshowName/season/:${seasonNum}/episode/:${episodeID}`)
+    payload : axios.get(`/api/tvshow/:tvshowName/season/${seasonNum}/episode/:${episodeID}`)
   }
 }
 export function getImage(userInput) {
   return {
+    
     type: GET_IMAGE,
-    payload: axios.get(`/api/imdb/:${userInput}`)
+    payload: axios.get(`/api/imdb/${userInput}`)
   };
 }
 

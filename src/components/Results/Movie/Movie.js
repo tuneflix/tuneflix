@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux"
-import {getImage, getTvShows, getMovies} from "../../../ducks/resultsReducer"
-import axios from 'axios'
-import unirest from 'unirest';
+import {getImage, getTvShows, getMovies,getMovieSongs} from "../../../ducks/resultsReducer"
 import SongCard from '../../Shared/SongCard/SongCard'
+import Header from "../../Shared/Header/Header"
 
 
 class Movie extends React.Component {
@@ -15,16 +14,23 @@ class Movie extends React.Component {
   }
 
   componentDidMount(){
+    const movID = this.props.match.params.movID
+    const movName = this.props.match.params.movName
+    this.props.getMovieSongs(movID);
+    // this.props.getImage(movName)
     
   }
   
   
   render(){
-    const{ movResults, tvShowResults,image,getMovieSongs} = this.props.resultsReducer
-    console.log(getMovieSongs)
-    // console.log(image)
+    const{ movResults,image,songResults} = this.props.resultsReducer
+    console.log(image);
+    console.log(songResults)
+    
+   
     return (
-      <div className="Error" style ={{marginTop: "40vh", marginLeft: "20vw"}}>
+      <div className="Error" >
+          <Header />
           <SongCard />
       </div>
     );

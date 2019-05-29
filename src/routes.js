@@ -11,7 +11,7 @@ export default (
         <Route exact path="/" component={Search} />
         <Route exact path ="/results" component = {Results} />
         <Route exact path ="/results/tvshow/:userInput" component = {TVShow} />
-        <Route exact path ="/results/movie/:userInput" component = {Movie} />
+        <Route exact path ="/results/movie/:movName/:movID" component = {Movie} />
         <Route path ="/" component ={Error} />
     </Switch>
 )
