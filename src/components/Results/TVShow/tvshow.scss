@@ -16,38 +16,7 @@
     flex-direction: column;
     align-items: center;
 
-    .tvshow-info-cont-a {
-      // border: 1px solid black;
-      width: auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      font-family: $second-font;
-
-      img {
-        max-width: 12vw;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-      }
-
-      ul {
-        list-style: none;
-        text-align: end;
-
-        #tv-show-name {
-          font-family: $second-font;
-          font-weight: bold;
-          font-size: 2em;
-        }
-
-        #tv-show-dates {
-          font-size: 1.3em;
-        }
-      }
-    }
-
-    .tvshow-info-cont-b {
+    .tvshow-info-cont {
       // border: 1px solid black;
       margin-top: 50px;
       width: 60vw;
@@ -74,8 +43,10 @@
           color: $second-color;
           font-family: $second-font;
           height: 2vh;
-          clip-path: polygon(81% 0, 100% 43%, 100% 100%, 0 100%, 0 0);
         }
+      }
+      ul {
+        list-style: none;
       }
     }
   }
