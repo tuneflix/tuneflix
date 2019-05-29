@@ -2,12 +2,13 @@ import React, {Component} from "react";
 import "./search.scss";
 import axios from 'axios';
 import {connect} from "react-redux"
-import {getMovies} from "../ducks/resultsReducer"
+import {getMovies,getTvShows,getImage} from "../ducks/resultsReducer"
+import { tsConstructorType } from "@babel/types";
 
 class Search extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
         userInput: '',
         movResults: []
@@ -24,17 +25,19 @@ handleInput = e => {
   this.setState({userInput: e.target.value})
 }
 
-//app.get("/api/movie/:userInput", rc.getMovie);
-  handleClick = () => {
+handleClick = () => {
     const {userInput} = this.state;
     this.props.getMovies(userInput);
-    // axios.get(`/api/movie/:${this.state.userInput}`).then(res => {
-    //   this.setState({movResults: res.data});
-    //   console.log('handleClick results: ', this.state.movResults);
-    // })
-  }
+    this.props.getTvShows(userInput);
+    this.props.getImage(userInput);
+    
+}
 
 render() {
+  const{ movResults, tvShowResults,image} = this.props.resultsReducer
+  // console.log(movResults)
+  console.log(tvShowResults)
+  // console.log(image)
   return (
     <div className="background">
       <div className="header">
@@ -48,9 +51,9 @@ render() {
   );
 }
 }
-function mapStateToProps(state){
-  return {
-    searchResults: state.movResults
+function mapStateToProps (state){
+  return{
+    resultsReducer: state.resultsReducer
   }
 }
-export default connect(mapStateToProps, {getMovies})(Search);
+export default connect(mapStateToProps, {getMovies,getTvShows,getImage})(Search);
