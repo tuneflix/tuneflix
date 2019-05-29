@@ -19,7 +19,6 @@ class App extends React.Component{
                 
                   {header}
                   {routes}
-              
           </div>
       </HashRouter>
     );
