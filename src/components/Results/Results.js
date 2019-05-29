@@ -11,11 +11,12 @@ class Results extends Component {
 
   render () {
   const{ movResults, tvShowResults,image} = this.props.resultsReducer;
-  // console.log(movResults);
-  // console.log(tvShowResults);
-  
-  let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.id}`}><li key={index}>{movie.name}</li></Link> );
-  let tvNames = tvShowResults.map((tv, index) => <Link to={`/results/tvshow/${tv.id}`}><li key={index}>{tv.name}</li></Link> )
+  let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.name}/${movie.id}`}><li key={index}>{movie.name}</li></Link> );
+  let tvNames = tvShowResults.map((tv, index) => (
+    <Link to={`/results/tvshow/${tv.name}/${tv.id}`}>
+      <li key={index}>{tv.name}</li>
+    </Link>
+  ));
 
   //movies - handle if no results
   let displayMovNames = movNames;

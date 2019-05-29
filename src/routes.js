@@ -15,7 +15,7 @@ export default (
       path="/results/tvshow/:tvShowName/:tvShowID"
       component={TVShow}
     />
-    <Route exact path="/results/movie/:movID" component={Movie} />
+    <Route exact path ="/results/movie/:movName/:movID" component = {Movie} />
     <Route path="/" component={Error} />
   </Switch>
 );
