@@ -21,7 +21,6 @@ class Search extends Component {
 }
 
 handleInput = e => {
-  
   this.setState({userInput: e.target.value})
 }
 
