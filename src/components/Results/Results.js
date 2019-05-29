@@ -20,6 +20,18 @@ class Results extends Component {
   let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.id}`}><li key={index}>{movie.name}</li></Link> );
   let tvNames = tvShowResults.map((tv, index) => <Link to={`/results/tvshow/${tv.id}`}><li key={index}>{tv.name}</li></Link> )
 
+  //movies - handle if no results
+  let displayMovNames = movNames;
+  if (movNames.length === 0) {
+    displayMovNames = `Sorry - there were no results.`
+  }
+
+  //movies - handle if no results
+  let displayTvNames = tvNames;
+  if (tvNames.length === 0) {
+    displayTvNames = `Sorry - there were no results.`
+  }
+
   return (
     <div className="background">
       <div className="header" />
@@ -27,13 +39,13 @@ class Results extends Component {
           <div className="movResults">
             <h3>MOVIE RESULTS</h3>
                 <ul>
-                  {movNames}
+                  {displayMovNames}
                 </ul>
         </div>
         <div className="tvResults">  
           <h3>TV SERIES RESULTS</h3>
                 <ul>
-                  {tvNames}
+                  {displayTvNames}
                 </ul>
         </div>
       </div>
