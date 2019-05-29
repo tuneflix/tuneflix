@@ -1,59 +1,89 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./tvshow.scss";
 import Header from "../../Shared/Header/Header";
 import { connect } from "react-redux";
-import { getTvShows } from "../../../ducks/resultsReducer";
+import {
+  getTvShows,
+  getTvShowInfo,
+  getTvShowSeason,
+  getTvShowEpisode,
+  getImage
+} from "../../../ducks/resultsReducer";
+import MediaInfo from "../../Shared/MediaInfo/MediaInfo";
 import axios from "axios";
 
 function TVShow(props) {
-  console.log(props);
+  const [currSeason, setCurrSeason] = useState(2);
+  const [displayEpiSongs, setDisplayEpiSongs] = useState(false);
+  const { tvShowName, tvShowID } = props.match.params;
+  const { tvShowSeasons, tvShowEpisodes } = props.results;
 
   useEffect(() => {
-    axios
-      .get("/api/image")
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-
-    // console.log("hit");
-    // props.getTvShows("breaking bad").then(res => {
-    //   console.log(res);
-    // });
+    props.getImage(tvShowName);
+    props.getTvShowInfo(tvShowID);
+    props.getTvShowSeason(tvShowID, currSeason);
+    console.log(props);
   }, []);
+
+  let seasonTabs = tvShowSeasons.map((season, i) => {
+    return (
+      <button
+        className="tab"
+        key={i}
+        onClick={() => {
+          setCurrSeason(season.season_number);
+          props.getTvShowSeason(tvShowID, season.season_number);
+          setDisplayEpiSongs(false);
+        }}
+      >
+        Season {season.season_number}
+      </button>
+    );
+  });
+
+  console.log(tvShowEpisodes);
+  let episodes = tvShowEpisodes.map((episode, i) => {
+    return (
+      <li
+        key={i}
+        onClick={() => {
+          setDisplayEpiSongs(!displayEpiSongs);
+        }}
+      >
+        {episode.episode_number}. {episode.name}
+      </li>
+    );
+  });
 
   return (
     <div className="wrapper">
+      {console.log(props.results)}
       <Header />
-      <div className="tvshow-wrapper">
-        <div className="tvshow-info-cont-a">
-          <img
-            src="https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTYtZTA3ZWFkODRkNmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,718,1000_AL_.jpg"
-            alt="tv show img"
+      {props.results.imdbLoading ? (
+        <h1>Loading!!!</h1>
+      ) : (
+        <div className="tvshow-wrapper">
+          <MediaInfo
+            mediaImage={props.results.image[0].Poster}
+            mediaTitle={props.results.image[0].Title}
+            mediaYear={props.results.image[0].Year}
           />
-          <ul>
-            <li id="tv-show-name">Breaking Bad</li>
-            <li id="tv-show-dates">2008-2013</li>
-          </ul>
-        </div>
-        <div className="tvshow-info-cont-b">
-          <div className="tab-cont">
-            <button className="tab">Season 1</button>
-            <button className="tab">Season 2</button>
-            <button className="tab">Season 3</button>
-            <button className="tab">Season 4</button>
-            <button className="tab">Season 5</button>
+          <div className="tvshow-info-cont">
+            <div className="tab-cont">{seasonTabs}</div>
+            {displayEpiSongs ? <p>song cards</p> : <ul>{episodes}</ul>}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
 const mapStateToProps = state => {
   return {
-    results: state.results
+    results: state.resultsReducer
   };
 };
 export default connect(
   mapStateToProps,
-  { getTvShows }
+  { getTvShows, getTvShowInfo, getTvShowSeason, getTvShowEpisode, getImage }
 )(TVShow);

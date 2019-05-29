@@ -1,16 +1,12 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./results.scss";
-import {connect} from "react-redux";
-import {Link} from 'react-router-dom';
-import Header from '../Shared/Header/Header'
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Results extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
+    this.state = {};
   }
 
   render () {
@@ -52,14 +48,13 @@ class Results extends Component {
         </div>
       </div>
     </div>
-  );
-}
+    );
+  }
 }
 
-// export default Results;
-function mapStateToProps (state){
-  return{
+function mapStateToProps(state) {
+  return {
     resultsReducer: state.resultsReducer
-  }
+  };
 }
 export default connect(mapStateToProps)(Results);
