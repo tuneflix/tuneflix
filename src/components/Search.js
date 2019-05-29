@@ -3,6 +3,7 @@ import "./search.scss";
 import axios from 'axios';
 import {connect} from "react-redux"
 import {getMovies,getTvShows,getImage} from "../ducks/resultsReducer"
+import { tsConstructorType } from "@babel/types";
 
 class Search extends Component {
 
@@ -34,6 +35,10 @@ handleClick = () => {
 }
 
 render() {
+  const{ movResults, tvShowResults,image} = this.props.resultsReducer
+  // console.log(movResults)
+  console.log(tvShowResults)
+  // console.log(image)
   return (
     <div className="background">
       <div className="header">
