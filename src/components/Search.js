@@ -11,7 +11,7 @@ class Search extends Component {
     super(props);
     this.state = {
         userInput: '',
-        movResults: []
+        // movResults: []
     }
   }
 
@@ -30,7 +30,6 @@ handleClick = () => {
     this.props.getMovies(userInput);
     this.props.getTvShows(userInput);
     this.props.getImage(userInput);
-    
 }
 
 render() {

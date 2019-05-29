@@ -4,6 +4,7 @@ import {getImage, getTvShows, getMovies} from "../../../ducks/resultsReducer"
 import axios from 'axios'
 import unirest from 'unirest';
 import SongCard from '../../Shared/SongCard/SongCard'
+import Header from '../../Shared/Header/Header'
 
 class Error extends React.Component {
   constructor(){
@@ -18,6 +19,7 @@ class Error extends React.Component {
     
     return (
       <div className="Error" style ={{marginTop: "40vh", marginLeft: "20vw"}}>
+          <Header />
           <SongCard />
       </div>
     );
