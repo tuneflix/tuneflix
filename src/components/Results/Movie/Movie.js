@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux"
 import {getImage, getTvShows, getMovies,getMovieSongs} from "../../../ducks/resultsReducer"
 import SongCard from '../../Shared/SongCard/SongCard'
-import Header from "../../Shared/Header/Header"
+import Header from '../../Shared/Header/Header'
 
 
 class Movie extends React.Component {

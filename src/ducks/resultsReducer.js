@@ -4,9 +4,12 @@ const initialState = {
   movResults: [],
   songResults: [],
   tvShowResults: [],
-  tvShowSeason: [],
-  tvShowEpisode : [],
-  image: []
+  tvShowSeasons: [],
+  tvShowEpisodes: [],
+  image: [],
+  imdbLoading: true,
+  tvShowSeasonLoading: true,
+  tvshowEpisodeLoading: true
 };
 
 // Action Types
@@ -14,7 +17,8 @@ const initialState = {
 export const GET_MOVIE = "GET_MOVIE";
 export const GET_MOVIE_SONG = "GET_MOVIE_SONG";
 export const GET_TV_SHOW = "GET_TV_SHOW";
-export const GET_TV_SHOW_SEASONS = "GET_SEASONS";
+export const GET_TV_SHOW_SEASONS = "GET_TV_SHOW_SEASONS";
+export const GET_TV_SHOW_EPISODES = "GET_TV_SHOW_EPISODES";
 export const GET_TV_SHOW_EPISODE = "GET_TV_SHOW_EPISODE";
 export const GET_IMAGE = "GET_IMAGE";
 
@@ -28,31 +32,39 @@ export function getMovies(userInput) {
 }
 
 export function getMovieSongs(movieName) {
-  return{
+  return {
     type: GET_MOVIE_SONG,
     payload: axios.get(`/api/songs/movie/${movieName}`)
-  }
+  };
 }
 
 export function getTvShows(userInput) {
   return {
     type: GET_TV_SHOW,
-    payload: axios.get(`/api/tvshow/${userInput}`)
+    payload: axios.get(`/api/search/tvshow/${userInput}`)
+  };
+}
+export function getTvShowInfo(tvShowID) {
+  return {
+    type: GET_TV_SHOW_SEASONS,
+    payload: axios.get(`/api/tvshow/${tvShowID}`)
   };
 }
 
-export function getTvShowSeason (tvshowName,seasonNum){
+export function getTvShowSeason(tvshowName, seasonNum) {
   return {
-    type: GET_TV_SHOW_SEASONS ,
-    payload : axios.get(`/api/tvshow/${tvshowName}/season/:${seasonNum}`)
-  }
+    type: GET_TV_SHOW_EPISODES,
+    payload: axios.get(`/api/tvshow/${tvshowName}/season/${seasonNum}`)
+  };
 }
 
-export function getTvShowEpisode(seasonNum, episodeID){
+export function getTvShowEpisode(seasonNum, episodeID) {
   return {
-    type:GET_TV_SHOW_EPISODE,
-    payload : axios.get(`/api/tvshow/:tvshowName/season/${seasonNum}/episode/:${episodeID}`)
-  }
+    type: GET_TV_SHOW_EPISODE,
+    payload: axios.get(
+      `/api/tvshow/:tvshowName/season/${seasonNum}/episode/${episodeID}`
+    )
+  };
 }
 export function getImage(userInput) {
   return {
@@ -63,42 +75,50 @@ export function getImage(userInput) {
 }
 
 export default function reducer(state = initialState, action) {
-  
- 
   switch (action.type) {
     case `${GET_MOVIE}_FULFILLED`:
       return {
         ...state,
-        movResults: action.payload.data 
+        movResults: action.payload.data
       };
     case `${GET_MOVIE_SONG}_FULFILLED`:
       return {
         ...state,
         songResults: action.payload.data
-    
-      }
+      };
     case `${GET_TV_SHOW}_FULFILLED`:
       return {
         ...state,
         tvShowResults: action.payload.data
       };
-    case `${GET_IMAGE}_FULFILLED`:
-      return {
-        ...state,
-        image: action.payload.data
-      };
     case `${GET_TV_SHOW_SEASONS}_FULFILLED`:
       return {
         ...state,
-        tvShowSeason: action.payload.data
-      }
+        tvShowSeasons: action.payload.data.seasons
+      };
+
+    case `${GET_IMAGE}_FULFILLED`:
+      return {
+        ...state,
+        image: action.payload.data,
+        imdbLoading: false
+      };
+
+    case `${GET_TV_SHOW_EPISODES}_FULFILLED`:
+      console.log(action.payload.data);
+      return {
+        ...state,
+        tvShowEpisodes: action.payload.data.episodes,
+        tvShowSeasonLoading: false
+      };
 
     case `${GET_TV_SHOW_EPISODE}_FULFILLED`:
       return {
         ...state,
-        tvShowEpisode: action.payload.data
-      }
-    
+        tvShowEpisode: action.payload.data,
+        tvShowEpisodeLoading: false
+      };
+
     default:
       return state;
   }
