@@ -100,6 +100,37 @@ module.exports = {
     };
     results().then(body => res.status(200).json(body));
   },
+  getTvShowInfo: (req, res) => {
+    const { tvshowName } = req.params;
+    const results = () => {
+      return new Promise((resolve, reject) => {
+        var req = unirest(
+          "GET",
+          `https://76b663e5.api.tunefind.com/api/v2/show/${tvshowName}`
+        );
+
+        req.headers({
+          "cache-control": "no-cache",
+          Connection: "keep-alive",
+          "accept-encoding": "gzip, deflate",
+          Host: "76b663e5.api.tunefind.com",
+          "Postman-Token":
+            "6e9f398b-bbe4-46a0-b054-a2e1de5fb6be,1121b5ed-c0df-4ca4-99f6-fb94d3da3e7c",
+          "Cache-Control": "no-cache",
+          Accept: "*/*",
+          "User-Agent": "PostmanRuntime/7.11.0",
+          Authorization:
+            "Basic NzZiNjYzZTVhYTE1NGJlYjE2YzNkM2Y2NzMxM2E0OWU6OGM0ZTVkMGU1MjdjZDNiZDlhZjJhN2RkNDVmM2ZiZDM="
+        });
+
+        req.end(function(res) {
+          if (res.error) throw new Error(res.error);
+          return resolve(res.body);
+        });
+      });
+    };
+    results().then(body => res.status(200).json(body));
+  },
   getTvShowSeason: (req, res) => {
     const { tvshowName, seasonNum } = req.params;
     const results = () => {

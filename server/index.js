@@ -18,9 +18,11 @@ app.use(express.json());
 app.get("/api/movie/:userInput", rc.getMovie);
 app.get("/api/songs/movie/:movieName", rc.getMovieSongs);
 //--tv show endpoints
-app.get("/api/tvshow/:userInput", rc.getTvShow);
+app.get("/api/search/tvshow/:userInput", rc.getTvShow);
+app.get("/api/tvshow/:tvshowName", rc.getTvShowInfo);
 app.get("/api/tvshow/:tvshowName/season/:seasonNum", rc.getTvShowSeason);
-app.get("/api/tvshow/:tvshowName/season/:seasonNum/episode/:episodeID",
+app.get(
+  "/api/tvshow/:tvshowName/season/:seasonNum/episode/:episodeID",
   rc.getTvShowEpisode
 );
 
