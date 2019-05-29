@@ -75,6 +75,10 @@
         padding-right: qpx;
         padding-bottom: 3px;
       }
+
+      :focus{
+        outline: none;
+      }
     }
   }
 }

@@ -17,7 +17,7 @@ class App extends React.Component{
       <HashRouter>
           <div className="App">
                 
-                  {header}
+                  {/* {header} */}
                   {routes}
           </div>
       </HashRouter>
