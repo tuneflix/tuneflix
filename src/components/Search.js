@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "./search.scss";
 import axios from 'axios';
 import {connect} from "react-redux"
-import {getMovies,getTvShows} from "../ducks/resultsReducer"
+import {getMovies,getTvShows,getImage} from "../ducks/resultsReducer"
 
 class Search extends Component {
 
@@ -29,6 +29,7 @@ handleClick = () => {
     const {userInput} = this.state;
     this.props.getMovies(userInput);
     this.props.getTvShows(userInput);
+    this.props.getImage(userInput);
     
 }
 
@@ -51,4 +52,4 @@ function mapStateToProps (state){
     resultsReducer: state.resultsReducer
   }
 }
-export default connect(mapStateToProps, {getMovies,getTvShows})(Search);
+export default connect(mapStateToProps, {getMovies,getTvShows,getImage})(Search);

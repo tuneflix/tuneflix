@@ -27,13 +27,10 @@ export function getTvShows(userInput) {
     payload: axios.get(`/api/tvshow/:${userInput}`)
   };
 }
-
 export function getImage(userInput) {
   return {
     type: GET_IMAGE,
-    payload: axios.get(
-      `https://movie-database-imdb-alternative.p.rapidapi.com/?page=1&r=json&s=${userInput}`
-    )
+    payload: axios.get(`/api/imdb/:${userInput}`)
   };
 }
 
@@ -47,13 +44,11 @@ export default function reducer(state = initialState, action) {
         movResults: action.payload.data 
       };
     case `${GET_TV_SHOW}_FULFILLED`:
-      console.log(action);
       return {
         ...state,
         tvShowResults: action.payload.data
       };
-    case `${GET_IMAGE}_FULLFILLED`:
-      // console.log(`GET_IMAGE ${action.payload.data}`);
+    case `${GET_IMAGE}_FULFILLED`:
       return {
         ...state,
         tvShowResults: action.payload.data
