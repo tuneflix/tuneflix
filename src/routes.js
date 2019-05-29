@@ -15,4 +15,3 @@ export default (
         <Route path ="/" component ={Error} />
     </Switch>
 )
-
