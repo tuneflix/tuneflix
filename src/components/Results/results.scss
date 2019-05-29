@@ -11,31 +11,33 @@
     h3 {
         text-decoration: underline;
         color: $fourth-color;
+        font-size: 3em;
     }
 
     .movResults {
         // background-color: $third-color;
     }
-}
 
 ul {
     padding-top: 3vh;
-    text-decoration: none;
+    // text-decoration: none;
 }
 
 li {
-    list-style-type: none;
-    font-size: 1.3em;
-    text-decoration: none;
+    // list-style-type: none;
+    font-size: 1.8em;
+    line-height: 50px;
+    // text-decoration: none;
 }
 
-li:first-child{
-    font-weight: bold;
-    font-size: 1.8em;
-    color: $fourth-color;
-}
+// li:first-child{
+//     font-weight: bold;
+//     font-size: 1.8em;
+//     color: $fourth-color;
+// }
 
 a:hover {
     // text-decoration: underline;
     cursor: pointer;
   }
+}
