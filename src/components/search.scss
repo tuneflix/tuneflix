@@ -4,7 +4,8 @@
   .background {
     width: 100vw;
     height: 92vw;
-    background-color: $second-color;
+    // background-color: $second-color;
+    background-image: url(../icons/pineapplecut.png);
 
     .header {
       width: 100vw;
@@ -12,8 +13,8 @@
       // background-color: $third-color;
     }
     .body {
-      margin-top: 15vh;  
-      
+      margin-top: 15vh;
+
       p {
         font-family: $second-font;
       }
@@ -31,8 +32,8 @@
     color: $first-color;
   }
   .userInput {
-    border-radius: 12px; 
-    padding-left: .5vw;
+    border-radius: 12px;
+    padding-left: 0.5vw;
     margin: auto;
     display: block;
     width: 24vw;
@@ -43,7 +44,7 @@
     align-content: center;
   }
 
-  input:focus{
+  input:focus {
     outline: none;
   }
 
