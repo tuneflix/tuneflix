@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import "./results.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import Header from '../Shared/Header/Header'
+=======
+import Header from "../Shared/Header/Header";
+>>>>>>> master
 
 class Results extends Component {
   constructor(props) {
@@ -55,6 +59,7 @@ class Results extends Component {
     } 
   }
 
+<<<<<<< HEAD
   render () {
   const{ movResults, tvShowResults, image} = this.props.resultsReducer;
   // console.log(movResults);
@@ -69,25 +74,40 @@ class Results extends Component {
   
   console.log('movNames length', movNames.length)
   let showMovNames = movNames.slice(0, this.state.movThruNum); 
+=======
+  render() {
+    const { movResults, tvShowResults, image } = this.props.resultsReducer;
+    let movNames = movResults.map((movie, index) => (
+      <Link to={`/results/movie/${movie.name}/${movie.id}`}>
+        <li key={index}>{movie.name}</li>
+      </Link>
+    ));
+    let tvNames = tvShowResults.map((tv, index) => (
+      <Link to={`/results/tvshow/${tv.name}/${tv.id}`}>
+        <li key={index}>{tv.name}</li>
+      </Link>
+    ));
+>>>>>>> master
 
-  //movies - handle if no results
-  let displayMovNames = movNames;
-  if (movNames.length === 0) {
-    displayMovNames = `Sorry - there were no results.`
-  }
+    //movies - handle if no results
+    let displayMovNames = movNames;
+    if (movNames.length === 0) {
+      displayMovNames = `Sorry - there were no results.`;
+    }
 
-  //movies - handle if no results
-  let displayTvNames = tvNames;
-  if (tvNames.length === 0) {
-    displayTvNames = `Sorry - there were no results.`
-  }
+    //movies - handle if no results
+    let displayTvNames = tvNames;
+    if (tvNames.length === 0) {
+      displayTvNames = `Sorry - there were no results.`;
+    }
 
-  return (
-    <div className="background">
-      <div className="header" />
-      <Header />
-      <div className="results">
+    return (
+      <div className="background">
+        <div className="header" />
+        <Header />
+        <div className="results">
           <div className="movResults">
+<<<<<<< HEAD
               <h3>MOVIE RESULTS</h3>
                  <div className='active'>
                   <ul>
@@ -106,8 +126,17 @@ class Results extends Component {
                   </ul>
                 </div>
           </div>
+=======
+            <h3>MOVIE RESULTS</h3>
+            <ul>{displayMovNames}</ul>
+          </div>
+          <div className="tvResults">
+            <h3>TV SERIES RESULTS</h3>
+            <ul>{displayTvNames}</ul>
+          </div>
+        </div>
+>>>>>>> master
       </div>
-    </div>
     );
   }
 }
