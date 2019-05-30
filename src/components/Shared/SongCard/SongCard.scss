@@ -2,49 +2,58 @@
 
 #SongCardBody {
   // background: $fourth-color;
-  height: 80vh;
+  // border: 1px solid blue;
+  width: 60vw;
+  height: 32vh;
   margin: 0;
   padding-bottom: 8vh;
   display: grid;
   place-items: end center;
-  overflow: hidden;
+  overflow: auto;
 
-    .cards {
-      display: flex;
-    }
+  .cards {
+    display: flex;
+  }
 
-    .card {
-      background: $second-color;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 4px 4px 15px 2px rgba(black, 0.75);
-      transition: 0.2s;
-      height: 20vh;
-    }
+  .card {
+    background: $third-color;
+    width: 150px;
+    border-radius: 0.3em;
+    padding: 2em;
+    box-shadow: 4px 4px 15px 2px rgba(black, 0.75);
+    transition: 0.2s;
+    height: 20vh;
+  }
 
-      .card:not(:first-child) {
-        //margin-left: -4rem;
-        margin-left: -4rem;
-    }
+  .card:not(:first-child) {
+    //margin-left: -4rem;
+    margin-left: -4rem;
+  }
 
-    .card:hover, .card:focus-within {
-      transform: translateY(-1rem); 
-    }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-1rem);
+  }
 
-    .card:hover ~ .card, .card:focus-within ~ .card {
-      //transform: translateX(4rem);
-    transform: translateX(4rem)
-    }
+  .card:hover ~ .card,
+  .card:focus-within ~ .card {
+    //transform: translateX(4rem);
+    transform: translateX(4rem);
+  }
+  h2 {
+    font-size: 1.2em;
+    font-family: $second-font;
+    color: $second-color;
+  }
 
-    h4 {
-      color: $first-color;
-      font-size: 1.1em;
-      text-transform: uppercase;
-    }
+  h4 {
+    color: $fifth-color;
+    font-size: 0.8em;
+    font-family: $second-font;
+    text-transform: uppercase;
+  }
 
-    a {
-      color: $third-color;
-    }
+  a {
+    color: $third-color;
+  }
 }
-
-

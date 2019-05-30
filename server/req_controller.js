@@ -164,6 +164,7 @@ module.exports = {
   },
   getTvShowEpisode: (req, res) => {
     const { tvshowName, seasonNum, episodeID } = req.params;
+    console.log(req.params);
     const results = () => {
       return new Promise((resolve, reject) => {
         var req = unirest(
