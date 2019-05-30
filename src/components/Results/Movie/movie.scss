@@ -1,0 +1,23 @@
+@import "../../../app.scss";
+
+.movie-body {
+  width: 100vw;
+  height: 100vh;
+  background-color: $second-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .movie-media-info{
+    border: 1px solid blue;
+    width: 70vw;
+    height: 80vh;
+    margin-top: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+    }
+  
+}

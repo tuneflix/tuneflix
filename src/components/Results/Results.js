@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./results.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Header from "../Shared/Header/Header"
 
 class Results extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Results extends Component {
 
   render () {
   const{ movResults, tvShowResults,image} = this.props.resultsReducer;
+  console.log(movResults)
   let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.name}/${movie.id}`}><li key={index}>{movie.name}</li></Link> );
   let tvNames = tvShowResults.map((tv, index) => (
     <Link to={`/results/tvshow/${tv.name}/${tv.id}`}>
