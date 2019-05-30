@@ -43,7 +43,7 @@ import {getMovies,getTvShows,getImage} from '../../../ducks/resultsReducer';
       this.props.getTvShows(userInput);
       this.props.getImage(userInput);
       this.props.history.push('/results');
-      console.log('props: ', this.props)
+      // console.log('props: ', this.props)
   }
 
   render() {
