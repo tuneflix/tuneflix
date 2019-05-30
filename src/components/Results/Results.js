@@ -88,7 +88,6 @@ class Results extends Component {
         <Header />
         <div className="results">
           <div className="movResults">
-<<<<<<< HEAD
               <h3>MOVIE RESULTS</h3>
                  <div className='active'>
                   <ul>
@@ -107,16 +106,6 @@ class Results extends Component {
                   </ul>
                 </div>
           </div>
-=======
-            <h3>MOVIE RESULTS</h3>
-            <ul>{displayMovNames}</ul>
-          </div>
-          <div className="tvResults">
-            <h3>TV SERIES RESULTS</h3>
-            <ul>{displayTvNames}</ul>
-          </div>
-        </div>
->>>>>>> master
       </div>
     );
   }
