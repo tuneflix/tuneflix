@@ -2,16 +2,41 @@
 
 .results {
     padding-top: 10vh;
+    padding-bottom: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     color: $fifth-color;
     font-family: $second-font;
     
+    button {
+        border: none;
+        height: 4vh;
+        border-radius: 10px;
+        background-color: $fourth-color;
+        font-family: $second-font;
+        font-size: 1em;
+        color: $second-color;
+        // display: flex;
+        flex-direction: row;
+        margin: .2vw;
+        // justify-content: center;
+        // align-items: center;
+    }
+
     h3 {
         text-decoration: underline;
         color: $fourth-color;
         font-size: 3em;
+    }
+
+    .active {
+        transition: height .5s ease;
+        overflow  : hidden;
+    }
+    
+    .active:not(.active) {
+        display: none;
     }
 
     .movResults {
