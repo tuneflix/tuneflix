@@ -5,13 +5,40 @@ function SongCard(props) {
   console.log(props.songResults);
   let songCards = props.songResults.map((song, i) => {
     return (
-      <div className="card">
-        <h2>
-          {/* <i className="material-icons">music_note</i> */}
-          {song.name}
-        </h2>{" "}
-        <br />
+      <div key={i} className="card">
+        <h2>{song.name}</h2> <br />
         <h4>{song.artist.name}</h4>
+        <div className="icon-cont">
+          {song.stores.map((e, i) => {
+            if (e.id === "applemusic-tunefind") {
+              return (
+                <a href={e.url} target="_blank" key={i}>
+                  <img src="https://image.flaticon.com/icons/svg/33/33970.svg" />
+                </a>
+              );
+            }
+            // else if (e.id === "itunes-tunefind") {
+            //   return (
+            //     <a href={e.url} target="_blank" key={i}>
+            //       <button>IT</button>
+            //     </a>
+            //   );
+            // }
+            else if (e.id === "amazon-tunefind") {
+              return (
+                <a href={e.url} target="_blank" key={i}>
+                  <img src="https://image.flaticon.com/icons/svg/142/142388.svg" />
+                </a>
+              );
+            } else if (e.id === "spotify-tunefind") {
+              return (
+                <a href={e.url} target="_blank" key={i}>
+                  <img src="https://image.flaticon.com/icons/svg/8/8710.svg" />
+                </a>
+              );
+            }
+          })}
+        </div>
       </div>
     );
   });
