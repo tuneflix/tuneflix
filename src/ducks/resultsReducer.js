@@ -19,7 +19,7 @@ export const GET_MOVIE_SONG = "GET_MOVIE_SONG";
 export const GET_TV_SHOW = "GET_TV_SHOW";
 export const GET_TV_SHOW_SEASONS = "GET_TV_SHOW_SEASONS";
 export const GET_TV_SHOW_EPISODES = "GET_TV_SHOW_EPISODES";
-export const GET_TV_SHOW_EPISODE = "GET_TV_SHOW_EPISODE";
+export const GET_TV_SHOW_EPISODE_SONGS = "GET_TV_SHOW_EPISODE_SONGS";
 export const GET_IMAGE = "GET_IMAGE";
 
 // Action Creator
@@ -58,17 +58,16 @@ export function getTvShowSeason(tvshowName, seasonNum) {
   };
 }
 
-export function getTvShowEpisode(seasonNum, episodeID) {
+export function getTvShowEpisodeSongs(tvShowName, seasonNum, episodeID) {
   return {
-    type: GET_TV_SHOW_EPISODE,
+    type: GET_TV_SHOW_EPISODE_SONGS,
     payload: axios.get(
-      `/api/tvshow/:tvshowName/season/${seasonNum}/episode/${episodeID}`
+      `/api/tvshow/${tvShowName}/season/${seasonNum}/episode/${episodeID}`
     )
   };
 }
 export function getImage(userInput) {
   return {
-    
     type: GET_IMAGE,
     payload: axios.get(`/api/imdb/${userInput}`)
   };
@@ -112,10 +111,10 @@ export default function reducer(state = initialState, action) {
         tvShowSeasonLoading: false
       };
 
-    case `${GET_TV_SHOW_EPISODE}_FULFILLED`:
+    case `${GET_TV_SHOW_EPISODE_SONGS}_FULFILLED`:
       return {
         ...state,
-        tvShowEpisode: action.payload.data,
+        songResults: action.payload.data.songs,
         tvShowEpisodeLoading: false
       };
 

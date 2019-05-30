@@ -8,7 +8,7 @@
   align-items: center;
 
   .tvshow-wrapper {
-    border: 1px solid blue;
+    // border: 1px solid blue;
     width: 70vw;
     height: 80vh;
 
@@ -21,15 +21,17 @@
       margin-top: 50px;
       width: 60vw;
       height: 41vh;
-      border-radius: 10px;
-      // margin-left: 10px;
-      // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-      // background-color: $first-color;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       .tab-cont {
         // border: 1px solid black;
-        height: 3vh;
-        background-color: $fifth-color;
+        position: absolute center;
+        height: 2px;
+        width: 55vw;
+        background-color: $first-color;
         border-radius: 5px;
         display: flex;
         justify-content: left;
@@ -38,15 +40,33 @@
         .tab {
           border: none;
           margin-left: 15px;
-          // border-radius: 5px;
-          background-color: $fourth-color;
+          border-radius: 0px 3px 5px;
+          background-color: $third-color;
           color: $second-color;
-          font-family: $second-font;
-          height: 2vh;
+          font-family: $first-font;
+          height: 2.5vh;
+        }
+        .tab:hover {
+          background-color: $fourth-color;
+        }
+        .tab:active {
+          background-color: $fifth-color;
         }
       }
       ul {
+        margin-top: 20px;
         list-style: none;
+        line-height: 3vh;
+
+        .episode {
+          font-family: $second-font;
+          font-size: 1.5em;
+          cursor: pointer;
+        }
+
+        .episode:hover {
+          color: $fourth-color;
+        }
       }
     }
   }
