@@ -20,7 +20,7 @@ class Movie extends React.Component {
     const movID = this.props.match.params.movID
     this.props.getMovieSongs(movID);
     
-
+    
     let lenghtofmovID = movID.length
     let year = movID.substring(lenghtofmovID - 4);
     if (isNaN(year)) {
@@ -36,11 +36,12 @@ class Movie extends React.Component {
   render() {
     const { movResults, image, songResults, imdbLoading } = this.props.resultsReducer
     const movName = this.props.match.params.movName
-    // const movID = this.props.match.params.movID
-    // let year = movID.substring(movID.length - 4);
-    // let index = image.findIndex(e => year == e.Year) 
-   
     
+    // if(image.length > 0){
+    //   const movID = this.props.match.params.movID
+    //   let year = movID.substring(movID.length - 4);
+    //   let index = image.findIndex(e => year == e.Year) 
+    // }
 
     
     console.log(songResults)
@@ -81,3 +82,8 @@ function mapStateToProps (state){
       }
     }
 export default connect(mapStateToProps, {getMovies,getImage,getMovieSongs})(Movie);
+
+// module.exports ={
+//   getMovieSongs,
+//   getImage
+// }

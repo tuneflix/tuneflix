@@ -59,12 +59,18 @@ module.exports = {
         });
 
         req.end(function(res) {
-          if (res.error) throw new Error(res.error);
+          if (res.error) {
+            return resolve([])
+          }
+          
           return resolve(res.body.songs);
+          
         });
       });
     };
-    results().then(body => res.status(200).json(body));
+    results().then(body => {
+      res.status(200).json(body)});
+    
   },
   getTvShow: (req, res) => {
     const { userInput } = req.params;
@@ -226,7 +232,9 @@ module.exports = {
         });
 
         req.end(function(res) {
-          if (res.error) throw new Error(res.error);
+          if (res.error){
+            return resolve([{"Poster" : "https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png"}])
+          };
           return resolve(res.body.Search);
         });
       });

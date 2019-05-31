@@ -2,14 +2,16 @@
 
 #SongCardBody {
   // background: $fourth-color;
-  // border: 1px solid blue;
-  width: 60vw;
+  // border: 50px $first-color solid;
+  border-radius: 10px;
+  width: 80vw;
   height: 32vh;
   margin: 0;
-  padding-bottom: 8vh;
+  padding-top: 1vh;
+  padding-bottom: 5vh;
   display: grid;
   place-items: end center;
-  overflow: auto;
+  overflow-x: scroll;
 
   .cards {
     display: flex;
@@ -24,6 +26,10 @@
     box-shadow: 4px 4px 15px 2px rgba(black, 0.75);
     transition: 0.2s;
     height: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .card:not(:first-child) {
@@ -56,5 +62,15 @@
 
   a {
     color: $third-color;
+  }
+
+  .icon-cont {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      width: 2em;
+      color: $second-color;
+    }
   }
 }
