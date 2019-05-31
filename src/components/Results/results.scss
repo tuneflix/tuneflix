@@ -9,6 +9,10 @@
     color: $fifth-color;
     font-family: $second-font;
     
+    .movButtons {
+        display: flex;
+    }
+
     button {
         border: none;
         height: 4vh;
@@ -18,7 +22,7 @@
         font-size: 1em;
         color: $second-color;
         // display: flex;
-        flex-direction: row;
+        // flex-direction: row;
         margin: .2vw;
         // justify-content: center;
         // align-items: center;
