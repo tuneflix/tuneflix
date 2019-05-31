@@ -2,7 +2,8 @@
 .wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: $second-color;
+  // background-color: $second-color;
+  background-image: url(../../../icons/pineapplecut.png);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,12 +19,12 @@
 
     .tvshow-info-cont {
       // border: 1px solid black;
-      margin-top: 50px;
+      margin-top: 65px;
       width: 60vw;
       height: 41vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      // justify-content: center;
       align-items: center;
 
       .tab-cont {
