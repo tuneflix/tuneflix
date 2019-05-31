@@ -11,7 +11,7 @@
   padding-bottom: 5vh;
   display: grid;
   place-items: end center;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   .cards {
     display: flex;
