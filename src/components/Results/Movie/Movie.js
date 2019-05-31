@@ -4,6 +4,7 @@ import { getImage, getTvShows, getMovies, getMovieSongs } from "../../../ducks/r
 import SongCard from '../../Shared/SongCard/SongCard'
 import Header from '../../Shared/Header/Header'
 import MediaInfo from "../../Shared/MediaInfo/MediaInfo"
+import "./movie.scss"
 
 
 class Movie extends React.Component {
@@ -17,7 +18,7 @@ class Movie extends React.Component {
   componentDidMount() {
 
     const movID = this.props.match.params.movID
-    // this.props.getMovieSongs(movID);
+    this.props.getMovieSongs(movID);
     
 
     let lenghtofmovID = movID.length
