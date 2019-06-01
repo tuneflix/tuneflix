@@ -7,63 +7,60 @@ import Header from '../Shared/Header/Header'
 class Results extends Component {
   constructor(props) {
     super(props);
+      this.underShowMoreButton = React.createRef();
     this.state = {
       currentStart: 0,
       currentEnd: 0,
       movLength: 0,
-      movThruNum: 9,
+      movThruNum: 10,
       movStyleMore: {},
       movStyleLess: {},
-      tvStyle: {}
+      tvStyle: {},
     };
   }
 
+  componentDidMount() {
+    console.log('CDM')
+    console.log('movThruNum CDM: ', this.state.movThruNum);
+    console.log('movLength CDM: ', this.state.movLength);
+  }
+  
+  componentWillReceiveProps() {
+    this.setState({movLength: this.props.resultsReducer.movResults.length})
+    //this.props.resultsReducer
+  }
+
+  focusMovShowMoreBtn () {
+    // this.movShowMoreBtn.current.focus();
+    // document.getElementById('showMovMore').focus();
+  }
+
   movShowMore = () => {
+    this.setState({movThruNum: this.state.movThruNum + 10});
+    console.log('movThruNum MORE: ', this.state.movThruNum);
+    console.log('movLength: ', this.state.movLength);
+    this.scrollIntoView_movBtnShowMore();
+  }
 
-      this.setState({movThruNum: this.state.movThruNum + 10})
-      console.log('movThruNum MORE: ', this.state.movThruNum)
+  // scrollToMyRef = () => window.scrollTo(0, (this.myRef.current.offsetTop-60)) 
 
-      var movShowButton = document.getElementById('movShowMore')
-      // var movShowPosition = movShowButton.offsetTop
-      movShowButton.scrollIntoView({block: 'nearest'});
-      // console.log('rect: ', rect);
-      // window.scrollTo(0, movShowPosition, 'smooth');
-      // (500 + (this.state.movThruNum*25))
-      // window.scrollBy({
-      //   top: 600,
-      //   left: 0,
-      //   behavior: "auto"
-      // });
-      // window.scrollTo(top, 0);
-      // this.setState({movLength: this.props.resultsReducer.movResults.length})
-
-      // if (this.state.movThruNum >= this.state.movLength) {
-      //   this.setState({movStyleMore: {display: 'none'}})
-      // } else {
-      //   this.setState({movStyleMore: {}})
-      // }
+  scrollIntoView_movBtnShowMore = () => {
+    setTimeout(() => {
+      this.underShowMoreButton.current.scrollIntoView({block: 'end', behavior: 'smooth'});
+    }, 50);
   }
 
   movShowLess = () => {
     this.setState({movThruNum: this.state.movThruNum - 10})
-    console.log('movThruNum LESS: ', this.state.movThruNum)
-
-    // if (this.state.movThruNum <= 10 ) {
-    //   this.setState({movStyleLess: {display: 'none'}})
-    // } else {
-    //   this.setState({movStyleLess: {}})
-    // } 
+    console.log('movThruNum LESS: ', this.state.movThruNum);
+    this.scrollIntoView_movBtnShowMore();
   }
 
   render () {
+
   const{ movResults, tvShowResults, image} = this.props.resultsReducer;
-  // console.log(movResults);
-  // console.log(tvShowResults);
 
-  let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.name}/${movie.id}`}><li key={index}>{movie.name}</li></Link> );
-  // console.log('movNames: ', movNames)
-
-  // 
+  let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.name}/${movie.id}`}><li id={`mov${index}`} key={index}>{movie.name}</li></Link> );
 
   let tvNames = tvShowResults.map((tv, index) => <Link to={`/results/tvshow/${tv.name}/${tv.id}`}><li key={index}>{tv.name}</li></Link> )
   
@@ -97,12 +94,12 @@ class Results extends Component {
                   </ul>
                 </div>
                 <div className='movButtons'>
-                {movResults.length > 10 ? 
-                <div>
-                  <button id='movShowMore' onClick={this.movShowMore} style={this.state.movStyleMore} >Show more . . .</button>
-                </div>
-                : null}
-                {this.state.movThruNum > 9 ?
+                {movResults.length > 10 && ((this.state.movThruNum + 10) < this.state.movLength) ? 
+                <div id='movShowMore'>
+                  <button id='movShowMoreBtn' onClick={this.movShowMore} style={this.state.movStyleMore}>Show more . . .</button>
+                </div> : null}
+                  <div id='underShowMoreButton' ref={this.underShowMoreButton}></div>
+                {this.state.movThruNum > 11 ?
                 <div>
                   <button onClick={this.movShowLess} style={this.state.movStyleLess} >Show less . . .</button>
                 </div> : null}
