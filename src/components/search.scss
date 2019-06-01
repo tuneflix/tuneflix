@@ -1,19 +1,24 @@
 @import "../app.scss";
 
-.Search {
+#Search {
   .background {
-    width: 100vw;
-    height: 92vw;
+    width: 100%;
+    height: 100%;
     // background-color: $second-color;
-    background-image: url(../wallpaper/pineapplecut.png);
+    background-image: url(../wallpaper/frank-septillion-208829-unsplash.jpg);
+    background-size: 100% 110%, cover;
+    position: relative;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
 
     .header {
-      width: 100vw;
+      width: 100%;
       height: 8vh;
       // background-color: $third-color;
     }
     .body {
-      margin-top: 15vh;
+      // margin-top: 15vh;
 
       p {
         font-family: $second-font;
@@ -26,7 +31,7 @@
     font-size: 5em;
     font-weight: bolder;
     display: block;
-    margin-top: 5vh;
+    margin-top: 20vh;
     margin-bottom: 2vh;
     text-align: center;
     color: $first-color;

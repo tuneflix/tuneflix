@@ -28,6 +28,8 @@ class Results extends Component {
     if (prevProps.resultsReducer !== this.props.resultsReducer) {
       this.setState({movLength: this.props.resultsReducer.movResults.length})
       this.setState({tvLength: this.props.resultsReducer.tvShowResults.length})
+      this.setState({movThruNum: 10})
+      this.setState({tvThruNum: 10})
     }
   }
 
@@ -88,10 +90,10 @@ class Results extends Component {
     }
 
     return (
-      <div className="background">
+      <div id="results_background">
         <div className="header" />
         <Header />
-        <div className="results">
+        <div id="results">
           <div className="movResults">
               <h3>MOVIE RESULTS</h3>
                  <div className='movActive'>
@@ -133,6 +135,7 @@ class Results extends Component {
                 </div>                
           </div>
       </div>
+                <p id = 'instructions'>Click on Movie/TV Show Title for More Info</p>
     </div>
     );
   }

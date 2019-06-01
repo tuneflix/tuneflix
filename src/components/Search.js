@@ -37,7 +37,7 @@ class Search extends Component {
     // console.log(tvShowResults)
     // console.log(image)
     return (
-      <div className="Search">
+      <div id="Search">
         <div className="background">
           <div className="header" />
           <div className="body">

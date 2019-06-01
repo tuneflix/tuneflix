@@ -1,18 +1,44 @@
 @import "../../app.scss";
 
-.background {
-    background-image: url(../../wallpaper/adrian-korte-76051-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh, cover;
+// .background {
+//     // background-image: url(../../wallpaper/georgia-vagim-381292-unsplash.jpg);
+//     // background-repeat: no-repeat;
+//     // background-size: 100% 110%, cover;
+//     // height: 110vh;
+//     // position: relative;
+// }
+
+#results_background:before {
+    background-image: url(../../wallpaper/georgia-vagim-381292-unsplash.jpg);
+    background-size: cover;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.7;
 }
 
-.results {
+#instructions {
+    margin-top: -18vh;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 10vw;
+    font-weight: bold;
+    color: $third-color;
+    font-style: italic;
+}
+
+#results {
     padding-top: 10vh;
     padding-bottom: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: $fifth-color;
+    color: $third-color;
     font-family: $second-font;
 
     #underTvShowMoreButton, #underMovShowMoreButton {
@@ -20,6 +46,7 @@
     }
 
     .movButtons, .tvButtons {
+        margin-top: 3vh;
         display: flex;
     }
 
@@ -45,8 +72,8 @@
 
     h3 {
         text-decoration: underline;
-        color: $fourth-color;
-        font-size: 3em;
+        color: $fifth-color;
+        font-size: 2.5em;
     }
 
     .active {
@@ -59,36 +86,36 @@
     }
 
     .movResults {
+        color: $second-color;
         // background-color: $third-color;
     }
 
     .tvActive, .movActive {
-        color: $second-color;
+        color: $first-color;
+        // font-size: 32px;
     }
 
-ul {
-    padding-top: 3vh;
-    // text-decoration: none;
-}
+    ul {
+        padding-top: 3vh;
+        font-size: 2em;
+        color: $second-color;
+        // text-decoration: none;
+    }
 
-li {
-    // list-style-type: none;
-    font-size: 1.8em;
-    line-height: 40px;
-    // text-decoration: none;
-}
+    li {
+        // list-style-type: none;
+        font-size: 1.1em;
+        line-height: 48px;
+        // text-decoration: none;
+    }
 
-// li:first-child{
-//     font-weight: bold;
-//     font-size: 1.8em;
-//     color: $fourth-color;
-// }
-a {
-    text-decoration: none;
-}
+    a {
+        text-decoration: none;
+        color: $fifth-color;
+    }
 
-a:hover {
-    // text-decoration: underline;
-    cursor: pointer;
-  }
+    a:hover {
+        // text-decoration: underline;
+        cursor: pointer;
+    }
 }
