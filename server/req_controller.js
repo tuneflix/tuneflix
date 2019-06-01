@@ -170,7 +170,7 @@ module.exports = {
   },
   getTvShowEpisode: (req, res) => {
     const { tvshowName, seasonNum, episodeID } = req.params;
-    console.log(req.params);
+    // console.log(req.params);
     const results = () => {
       return new Promise((resolve, reject) => {
         var req = unirest(
@@ -232,13 +232,19 @@ module.exports = {
         });
 
         req.end(function(res) {
-          if (res.error){
-            return resolve([{"Poster" : "https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png"}])
-          };
+          if (res.error) throw new Error(res.error);
           return resolve(res.body.Search);
         });
       });
     };
-    results().then(body => res.status(200).json(body));
+    results().then(body => {
+      if(body === undefined){
+        // console.log(`undefined ${body}`)
+        res.status(200).json([])
+      } else {
+        // console.log(body)
+        res.status(200).json(body)
+      }
+    });
   }
 };
