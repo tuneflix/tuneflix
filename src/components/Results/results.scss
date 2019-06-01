@@ -1,7 +1,9 @@
 @import "../../app.scss";
 
 .background {
-background-image: url(../../wallpaper/pineapplecut.png);
+    background-image: url(../../wallpaper/adrian-korte-76051-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh, cover;
 }
 
 .results {
@@ -13,12 +15,20 @@ background-image: url(../../wallpaper/pineapplecut.png);
     color: $fifth-color;
     font-family: $second-font;
 
-    #underShowMoreButton {
-        padding-top: 5vh;
+    #underTvShowMoreButton, #underMovShowMoreButton {
+        padding-top: 15vh;
     }
 
-    .movButtons {
+    .movButtons, .tvButtons {
         display: flex;
+    }
+
+    button:focus {
+        outline: none;
+    }
+    
+    button:hover {
+        background-color: $first-color;
     }
 
     button {
@@ -29,12 +39,8 @@ background-image: url(../../wallpaper/pineapplecut.png);
         font-family: $second-font;
         font-size: 1em;
         color: $second-color;
-        // display: flex;
-        // flex-direction: row;
         margin: .2vw;
         margin-bottom: 3vh;
-        // justify-content: center;
-        // align-items: center;
     }
 
     h3 {
@@ -56,6 +62,10 @@ background-image: url(../../wallpaper/pineapplecut.png);
         // background-color: $third-color;
     }
 
+    .tvActive, .movActive {
+        color: $second-color;
+    }
+
 ul {
     padding-top: 3vh;
     // text-decoration: none;
@@ -64,7 +74,7 @@ ul {
 li {
     // list-style-type: none;
     font-size: 1.8em;
-    line-height: 50px;
+    line-height: 40px;
     // text-decoration: none;
 }
 
@@ -73,6 +83,9 @@ li {
 //     font-size: 1.8em;
 //     color: $fourth-color;
 // }
+a {
+    text-decoration: none;
+}
 
 a:hover {
     // text-decoration: underline;
