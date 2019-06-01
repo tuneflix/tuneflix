@@ -2,11 +2,12 @@ import axios from "axios";
 
 const initialState = {
   movResults: [],
+  movIMDB: [],
   songResults: [],
   tvShowResults: [],
   tvShowSeasons: [],
   tvShowEpisodes: [],
-  image: [],
+  tvShowIMDB: [],
   imdbLoading: true,
   tvShowSeasonLoading: true,
   tvshowEpisodeLoading: true
@@ -16,11 +17,13 @@ const initialState = {
 
 export const GET_MOVIE = "GET_MOVIE";
 export const GET_MOVIE_SONG = "GET_MOVIE_SONG";
+export const GET_MOVIE_IMDB = "GET_MOVIE_IMDB";
+
 export const GET_TV_SHOW = "GET_TV_SHOW";
 export const GET_TV_SHOW_SEASONS = "GET_TV_SHOW_SEASONS";
 export const GET_TV_SHOW_EPISODES = "GET_TV_SHOW_EPISODES";
 export const GET_TV_SHOW_EPISODE_SONGS = "GET_TV_SHOW_EPISODE_SONGS";
-export const GET_IMAGE = "GET_IMAGE";
+export const GET_TV_SHOW_IMDB = "GET_TV_SHOW_IMDB";
 
 // Action Creator
 
@@ -32,6 +35,7 @@ export function getMovies(userInput) {
 }
 
 export function getMovieSongs(movieName) {
+  
   return {
     type: GET_MOVIE_SONG,
     payload: axios.get(`/api/songs/movie/${movieName}`)
@@ -66,25 +70,39 @@ export function getTvShowEpisodeSongs(tvShowName, seasonNum, episodeID) {
     )
   };
 }
-export function getImage(userInput) {
+export function getTvShowImdb(userInput) {
   return {
-    type: GET_IMAGE,
+    type: GET_TV_SHOW_IMDB,
     payload: axios.get(`/api/imdb/${userInput}`)
   };
 }
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    //Cases for Movies
     case `${GET_MOVIE}_FULFILLED`:
       return {
         ...state,
         movResults: action.payload.data
       };
     case `${GET_MOVIE_SONG}_FULFILLED`:
+        console.log(action.payload.data)
       return {
         ...state,
         songResults: action.payload.data
       };
+    case `${GET_MOVIE_IMDB}_FULFILLED`:
+      let filteredMovData = action.payload.data.filter(
+        result => result.Type === "movie"
+      );
+      console.log(filteredMovData);
+      return {
+        ...state,
+        movIMDB: filteredMovData,
+        imdbLoading: false
+      };
+
+    //Cases for TV
     case `${GET_TV_SHOW}_FULFILLED`:
       return {
         ...state,
@@ -96,15 +114,8 @@ export default function reducer(state = initialState, action) {
         tvShowSeasons: action.payload.data.seasons
       };
 
-    case `${GET_IMAGE}_FULFILLED`:
-      return {
-        ...state,
-        image: action.payload.data,
-        imdbLoading: false
-      };
-
     case `${GET_TV_SHOW_EPISODES}_FULFILLED`:
-      console.log(action.payload.data);
+      // console.log(action.payload.data);
       return {
         ...state,
         tvShowEpisodes: action.payload.data.episodes,
@@ -116,6 +127,16 @@ export default function reducer(state = initialState, action) {
         ...state,
         songResults: action.payload.data.songs,
         tvShowEpisodeLoading: false
+      };
+    case `${GET_TV_SHOW_IMDB}_FULFILLED`:
+      let filteredTVData = action.payload.data.filter(
+        result => result.Type === "series"
+      );
+      console.log(filteredTVData);
+      return {
+        ...state,
+        tvShowIMDB: filteredTVData,
+        imdbLoading: false
       };
 
     default:

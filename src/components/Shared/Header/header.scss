@@ -59,7 +59,7 @@
       border: none;
       height: 4vh;
       border-radius: 10px;
-      background-color: $fourth-color;
+      background-color: $third-color;
       font-family: $second-font;
       font-size: 1em;
       color: $second-color;
@@ -76,7 +76,7 @@
         padding-bottom: 3px;
       }
 
-      :focus{
+      :focus {
         outline: none;
       }
     }

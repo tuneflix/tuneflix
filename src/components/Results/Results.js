@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./results.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Header from '../Shared/Header/Header'
+import Header from "../Shared/Header/Header"
 
 class Results extends Component {
   constructor(props) {

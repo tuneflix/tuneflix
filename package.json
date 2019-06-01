@@ -38,5 +38,6 @@
     ]
   },
   "proxy": "http://localhost:4020",
-  "main": "server/index.js"
+  "main": "server/index.js",
+  "devDependencies": {}
 }

@@ -3,13 +3,13 @@
   width: 100vw;
   height: 100vh;
   // background-color: $second-color;
-  background-image: url(../../../icons/pineapplecut.png);
+  background-image: url(../../../wallpaper/pineapplecut.png);
   display: flex;
   justify-content: center;
   align-items: center;
 
   .tvshow-wrapper {
-    // border: 1px solid blue;
+    border: 1px solid blue;
     width: 70vw;
     height: 80vh;
 
@@ -48,11 +48,13 @@
           height: 2.5vh;
         }
         .tab:hover {
-          background-color: $fourth-color;
+          background-color: $fourth-color !important;
         }
-        .tab:active {
-          background-color: $fifth-color;
-        }
+      }
+      .info-in-view {
+        font-family: $second-font;
+        font-size: 1.5em;
+        margin-top: 20px;
       }
       ul {
         margin-top: 20px;
