@@ -5,14 +5,14 @@ function SongCard(props) {
   console.log(props.songResults);
   let songCards = props.songResults.map((song, i) => {
     return (
-      <div key={i} className="card">
+      <div key={i} className="card" id={`song-card${i}`}>
         <h2>{song.name}</h2> <br />
         <h4>{song.artist.name}</h4>
         <div className="icon-cont">
           {song.stores.map((e, i) => {
             if (e.id === "applemusic-tunefind") {
               return (
-                <a href={e.url} target="_blank" key={i}>
+                <a href={e.url} target="_blank" key={i} className= "apple-music-icon" id ={`appleMusic${i}`}>
                   <img src="https://image.flaticon.com/icons/svg/33/33970.svg" />
                 </a>
               );
@@ -26,7 +26,7 @@ function SongCard(props) {
             // }
             else if (e.id === "amazon-tunefind") {
               return (
-                <a href={e.url} target="_blank" key={i}>
+                <a href={e.url} target="_blank" key={i} id ={`amazonMusic${i}`}>
                   <img src="https://image.flaticon.com/icons/svg/142/142388.svg" />
                 </a>
               );

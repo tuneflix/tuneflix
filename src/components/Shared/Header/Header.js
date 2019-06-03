@@ -61,7 +61,7 @@ class Header extends Component {
       <div className="header-wrapper">
         <div className="header-cont">
           <Link to="/">
-            <h1>TuneFlix</h1>
+            <h1 className ="logo-header">TuneFlix</h1>
           </Link>
           <div className="input-cont">
             <input
@@ -69,9 +69,10 @@ class Header extends Component {
               onKeyPress={this.handleEnter}
               onChange={this.handleInput}
               placeholder="Search by movie, tv show, or artist"
+              className ="Header-input"
             />
             <Link to="/results">
-              <i onClick={this.handleClick} className="material-icons">
+              <i onClick={this.handleClick} className="material-icons" id ="material-icons-1">
                 search
               </i>
             </Link>
