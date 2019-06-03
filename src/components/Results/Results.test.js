@@ -1,5 +1,11 @@
 const Results = require("./Results");
 
-// test("Clicking Search button runs", () => {
-//   expect().toEqual();
-// });
+// test("getMovieImdb() should not return undefined", () => {
+  
+//     expect(getMovieSongs("Bohemian")).not.toBe(undefined);
+//   })
+
+test('Input box is accessible', () => {
+
+})
+
