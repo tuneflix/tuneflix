@@ -24,7 +24,6 @@ function TVShow(props) {
     props.getTvShowImdb(tvShowID);
     props.getTvShowInfo(tvShowID);
     props.getTvShowSeason(tvShowID, currSeason);
-    console.log(props.results.image);
   }, []);
 
   let seasonTabs = tvShowSeasons.map((season, i) => {
@@ -51,7 +50,7 @@ function TVShow(props) {
   let episodes = tvShowEpisodes.map((episode, i) => {
     return (
       <li
-        id ={`episode${i}`}
+        id={`episode${i}`}
         className="episode"
         key={i}
         onClick={() => {
@@ -68,6 +67,8 @@ function TVShow(props) {
       </li>
     );
   });
+
+  console.log(seasonTabs, episodes);
 
   return (
     <div className="wrapper">
