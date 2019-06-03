@@ -74,11 +74,21 @@ function TVShow(props) {
         <h1>Loading!!!</h1>
       ) : (
         <div className="tvshow-wrapper">
-          <MediaInfo
-            mediaImage={props.results.tvShowIMDB[0].Poster}
-            mediaTitle={props.results.tvShowIMDB[0].Title}
-            mediaYear={props.results.tvShowIMDB[0].Year}
-          />
+          {props.results.tvShowIMDB.length > 0 ? (
+            <MediaInfo
+              mediaImage={props.results.tvShowIMDB[0].Poster}
+              mediaTitle={props.results.tvShowIMDB[0].Title}
+              mediaYear={props.results.tvShowIMDB[0].Year}
+            />
+          ) : (
+            <MediaInfo
+              mediaImage={
+                "https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png"
+              }
+              mediaTitle={tvShowName}
+              // mediaYear={props.results.tvShowIMDB[0].Year}
+            />
+          )}
           <div className="tvshow-info-cont">
             <div className="tab-cont">{seasonTabs}</div>
             {displayEpiSongs ? (
