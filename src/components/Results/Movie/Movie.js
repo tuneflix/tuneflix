@@ -90,7 +90,3 @@ function mapStateToProps (state){
     }
 export default connect(mapStateToProps, {getMovies,getMovieImdb,getMovieSongs})(Movie);
 
-// module.exports ={
-//   getMovieSongs,
-//   getImage
-// }
