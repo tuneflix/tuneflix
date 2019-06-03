@@ -1,43 +1,121 @@
 @import "../../app.scss";
 
-.results {
+// .background {
+//     // background-image: url(../../wallpaper/georgia-vagim-381292-unsplash.jpg);
+//     // background-repeat: no-repeat;
+//     // background-size: 100% 110%, cover;
+//     // height: 110vh;
+//     // position: relative;
+// }
+
+#results_background:before {
+    background-image: url(../../wallpaper/georgia-vagim-381292-unsplash.jpg);
+    background-size: cover;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.7;
+}
+
+#instructions {
+    margin-top: -18vh;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 10vw;
+    font-weight: bold;
+    color: $third-color;
+    font-style: italic;
+}
+
+#results {
     padding-top: 10vh;
+    padding-bottom: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: $fifth-color;
+    color: $third-color;
     font-family: $second-font;
+
+    #underTvShowMoreButton, #underMovShowMoreButton {
+        padding-top: 15vh;
+    }
+
+    .movButtons, .tvButtons {
+        margin-top: 3vh;
+        display: flex;
+    }
+
+    button:focus {
+        outline: none;
+    }
     
+    button:hover {
+        background-color: $first-color;
+    }
+
+    button {
+        border: none;
+        height: 4vh;
+        border-radius: 10px;
+        background-color: $fourth-color;
+        font-family: $second-font;
+        font-size: 1em;
+        color: $second-color;
+        margin: .2vw;
+        margin-bottom: 3vh;
+    }
+
     h3 {
         text-decoration: underline;
-        color: $fourth-color;
-        font-size: 3em;
+        color: $fifth-color;
+        font-size: 2.5em;
+    }
+
+    .active {
+        transition: height .5s ease;
+        overflow  : hidden;
+    }
+    
+    .active:not(.active) {
+        display: none;
     }
 
     .movResults {
+        color: $second-color;
         // background-color: $third-color;
     }
 
-ul {
-    padding-top: 3vh;
-    // text-decoration: none;
-}
+    .tvActive, .movActive {
+        color: $first-color;
+        // font-size: 32px;
+    }
 
-li {
-    // list-style-type: none;
-    font-size: 1.8em;
-    line-height: 50px;
-    // text-decoration: none;
-}
+    ul {
+        padding-top: 3vh;
+        font-size: 2em;
+        color: $second-color;
+        // text-decoration: none;
+    }
 
-// li:first-child{
-//     font-weight: bold;
-//     font-size: 1.8em;
-//     color: $fourth-color;
-// }
+    li {
+        // list-style-type: none;
+        font-size: 1.1em;
+        line-height: 48px;
+        // text-decoration: none;
+    }
 
-a:hover {
-    // text-decoration: underline;
-    cursor: pointer;
-  }
+    a {
+        text-decoration: none;
+        color: $fifth-color;
+    }
+
+    a:hover {
+        // text-decoration: underline;
+        cursor: pointer;
+    }
 }

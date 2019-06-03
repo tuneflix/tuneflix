@@ -11,6 +11,7 @@ import {
 class Header extends Component {
   constructor(props) {
     super(props);
+    this.inputBoxRef = React.createRef();
     this.state = {
       userInput: "",
       movResults: [],
@@ -26,8 +27,8 @@ class Header extends Component {
     } else {
       this.setState({ style: {} });
     }
-    console.log("pathname: ", this.props.location.pathname);
-    console.log("style: ", this.state.style);
+    // console.log("pathname: ", this.props.location.pathname);
+    // console.log("style: ", this.state.style);
   }
 
   handleEnter = e => {
@@ -47,7 +48,13 @@ class Header extends Component {
     this.props.getTvShowImdb(userInput);
     this.props.history.push("/results");
     console.log("props: ", this.props);
+    this.setState({userInput: ''});
+    this.clearInputBox();
   };
+
+  clearInputBox = () => { 
+    this.inputBoxRef.value = '';
+  }
 
   render() {
     return (
@@ -58,6 +65,7 @@ class Header extends Component {
           </Link>
           <div className="input-cont">
             <input
+              ref = {(el) => this.inputBoxRef = el}
               onKeyPress={this.handleEnter}
               onChange={this.handleInput}
               placeholder="Search by movie, tv show, or artist"

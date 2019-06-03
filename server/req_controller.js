@@ -59,12 +59,18 @@ module.exports = {
         });
 
         req.end(function(res) {
-          if (res.error) throw new Error(res.error);
+          if (res.error) {
+            return resolve([])
+          }
+          
           return resolve(res.body.songs);
+          
         });
       });
     };
-    results().then(body => res.status(200).json(body));
+    results().then(body => {
+      res.status(200).json(body)});
+    
   },
   getTvShow: (req, res) => {
     const { userInput } = req.params;
@@ -164,7 +170,7 @@ module.exports = {
   },
   getTvShowEpisode: (req, res) => {
     const { tvshowName, seasonNum, episodeID } = req.params;
-    console.log(req.params);
+    // console.log(req.params);
     const results = () => {
       return new Promise((resolve, reject) => {
         var req = unirest(
@@ -231,6 +237,14 @@ module.exports = {
         });
       });
     };
-    results().then(body => res.status(200).json(body));
+    results().then(body => {
+      if(body === undefined){
+        // console.log(`undefined ${body}`)
+        res.status(200).json([])
+      } else {
+        // console.log(body)
+        res.status(200).json(body)
+      }
+    });
   }
 };

@@ -1,46 +1,92 @@
 import React from "react";
-import { connect } from "react-redux";
-import {
-  getTvShowImdb,
-  getTvShows,
-  getMovies,
-  getMovieSongs
-} from "../../../ducks/resultsReducer";
-import SongCard from "../../Shared/SongCard/SongCard";
-import Header from "../../Shared/Header/Header";
+import { connect } from "react-redux"
+import { getMovieImdb, getTvShows, getMovies, getMovieSongs } from "../../../ducks/resultsReducer"
+import SongCard from '../../Shared/SongCard/SongCard'
+import Header from '../../Shared/Header/Header'
+import MediaInfo from "../../Shared/MediaInfo/MediaInfo"
+import "./movie.scss"
+
 
 class Movie extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+
+    }
   }
 
   componentDidMount() {
-    const movID = this.props.match.params.movID;
-    const movName = this.props.match.params.movName;
+
+    const movID = this.props.match.params.movID
     this.props.getMovieSongs(movID);
-    // this.props.getTvShowImdb(movName)
+    
+    
+    let lenghtofmovID = movID.length
+    let year = movID.substring(lenghtofmovID - 4);
+    if (isNaN(year)) {
+      this.props.getMovieImdb(movID);
+    } else {
+      let movIDWithoutYear = movID.substring(0, lenghtofmovID - 5);
+      this.props.getMovieImdb(movIDWithoutYear)
+
+    }
   }
+
 
   render() {
-    const { movResults, image, songResults } = this.props.resultsReducer;
-    console.log(image);
-    console.log(songResults);
+    const { movResults, movIMDB, songResults, imdbLoading } = this.props.resultsReducer
+    const movName = this.props.match.params.movName
+    
+    let filteredmovIMDB = [];
+    if(movIMDB.length > 0){
+      const movID = this.props.match.params.movID
+      let year = movID.substring(movID.length - 4);
+      if(isNaN(year) ===false ){
+        let arr = movIMDB.filter( e => e.Year === year );
+          if(arr[0]){filteredmovIMDB.push(arr[0])}
+        
+      }
+      console.log(filteredmovIMDB)
+      
+    }
 
+    
+    console.log(songResults)
+    console.log(movIMDB)
     return (
-      <div className="Error">
-        <Header />
-        <SongCard />
-      </div>
-    );
+        <div className="movie-body" >
+          <Header />
+          {imdbLoading ? (
+            <h1>Loading!!!</h1>
+          ) : (
+              <div className = "movie-media-info">
+                  {filteredmovIMDB.length > 0 ?
+                    <MediaInfo
+                    mediaImage={filteredmovIMDB[0].Poster}
+                    mediaTitle={filteredmovIMDB[0].Title}
+                    mediaYear={filteredmovIMDB[0].Year}
+                    /> 
+                    :
+                    <MediaInfo
+                    mediaImage={"https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png"}
+                    mediaTitle={movName}
+                    
+                    /> 
+                    
+                  }
+                     <SongCard songResults = {songResults}/>
+              </div>
+            )
+          }
+        </div>
+      );
+  
   }
 }
-function mapStateToProps(state) {
+function mapStateToProps (state){
   return {
-    resultsReducer: state.resultsReducer
-  };
-}
-export default connect(
-  mapStateToProps,
-  { getMovies, getTvShowImdb, getMovieSongs }
-)(Movie);
+          resultsReducer: state.resultsReducer
+      }
+    }
+export default connect(mapStateToProps, {getMovies,getMovieImdb,getMovieSongs})(Movie);
+

@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +39,8 @@
     ]
   },
   "proxy": "http://localhost:4020",
-  "main": "server/index.js"
+  "main": "server/index.js",
+  "devDependencies": {
+    "cypress": "^3.3.1"
+  }
 }

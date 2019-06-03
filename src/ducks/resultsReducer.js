@@ -35,9 +35,17 @@ export function getMovies(userInput) {
 }
 
 export function getMovieSongs(movieName) {
+  
   return {
     type: GET_MOVIE_SONG,
     payload: axios.get(`/api/songs/movie/${movieName}`)
+  };
+}
+
+export function getMovieImdb(userInput) {
+  return {
+    type: GET_MOVIE_IMDB,
+    payload: axios.get(`/api/imdb/${userInput}`)
   };
 }
 
@@ -85,11 +93,13 @@ export default function reducer(state = initialState, action) {
         movResults: action.payload.data
       };
     case `${GET_MOVIE_SONG}_FULFILLED`:
+        
       return {
         ...state,
         songResults: action.payload.data
       };
     case `${GET_MOVIE_IMDB}_FULFILLED`:
+      console.log(action.payload.data)
       let filteredMovData = action.payload.data.filter(
         result => result.Type === "movie"
       );
@@ -130,7 +140,7 @@ export default function reducer(state = initialState, action) {
       let filteredTVData = action.payload.data.filter(
         result => result.Type === "series"
       );
-      console.log(filteredTVData);
+      // console.log(filteredTVData);
       return {
         ...state,
         tvShowIMDB: filteredTVData,
