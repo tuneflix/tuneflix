@@ -28,15 +28,16 @@ class Search extends Component {
     const { userInput } = this.state;
     this.props.getMovies(userInput);
     this.props.getTvShows(userInput);
-  };
+    this.props.history.push('/results');
+}
 
   render() {
     const { movResults, tvShowResults, image } = this.props.resultsReducer;
-    // console.log(movResults)
-    // console.log(tvShowResults)
-    // console.log(image)
+    console.log(movResults)
+    console.log(tvShowResults)
+    console.log(image)
     return (
-      <div className="Search">
+      <div id="Search">
         <div className="background">
           <div className="header" />
           <div className="body">
