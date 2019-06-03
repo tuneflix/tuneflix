@@ -42,15 +42,25 @@ class Search extends Component {
           <div className="header" />
           <div className="body">
             <h1>TuneFlix</h1>
-            <input
-              onKeyPress={this.handleEnter}
-              onChange={this.handleInput}
-              className="userInput"
-              placeholder="Search TuneFlix for Movie or TV Series"
-            />
-            <Link to="/results">
-              <button onClick={this.handleClick}>Search</button>
-            </Link>
+            <div className="search-cont">
+              <input
+                onKeyPress={this.handleEnter}
+                onChange={this.handleInput}
+                className="userInput"
+                placeholder="Search TuneFlix for Movie or TV Series"
+              />
+              <Link to="/results">
+                {/* <button onClick={this.handleClick}> */}
+                <i onClick={this.handleClick} className="material-icons">
+                  search
+                </i>
+                {/* </button> */}
+              </Link>
+            </div>
+            <p>
+              Discover soundtracks by searching your favorite movies and tv
+              series!
+            </p>
           </div>
         </div>
       </div>
