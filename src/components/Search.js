@@ -49,7 +49,7 @@ class Search extends Component {
               placeholder="Search TuneFlix for Movie or TV Series"
             />
             <Link to="/results">
-              <button onClick={this.handleClick}>Search</button>
+              <button onClick={this.handleClick} className ="Search-button">Search</button>
             </Link>
           </div>
         </div>

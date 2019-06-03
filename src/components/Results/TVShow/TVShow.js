@@ -30,6 +30,7 @@ function TVShow(props) {
   let seasonTabs = tvShowSeasons.map((season, i) => {
     return (
       <button
+        id={`tab${i}`}
         className="tab"
         style={{
           background:
@@ -50,6 +51,7 @@ function TVShow(props) {
   let episodes = tvShowEpisodes.map((episode, i) => {
     return (
       <li
+        id ={`episode${i}`}
         className="episode"
         key={i}
         onClick={() => {
