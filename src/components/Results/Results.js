@@ -24,6 +24,8 @@ class Results extends Component {
     };
   }
   
+  // sets state values to enable the scroll to adjust
+  // after showMore or showLess buttons are clicked
  componentDidUpdate(prevProps) {
     if (prevProps.resultsReducer !== this.props.resultsReducer) {
       this.setState({movLength: this.props.resultsReducer.movResults.length})
@@ -33,32 +35,40 @@ class Results extends Component {
     }
   }
 
+  //add 10 more movies to display - adjust screen position 
   movShowMore = () => {
     this.setState({movThruNum: this.state.movThruNum + 10});
     this.scrollIntoView_movBtnShowMore();
   }
   
+  //reduce display by 10 movies - adjust screen position 
   movShowLess = () => {
     this.setState({movThruNum: this.state.movThruNum - 10})
     this.scrollIntoView_movBtnShowMore();
   }
 
+  //adjust screen position after click of showMore or showLess buttons
+  //tied to div with reference of {this.underMovShowMoreButton} 
   scrollIntoView_movBtnShowMore = () => {
     setTimeout(() => {
       this.underMovShowMoreButton.current.scrollIntoView({block: 'end', behavior: 'smooth'});
     }, 75);
   }
 
+  //add 10 more tvShows to display - adjust screen position
   tvShowMore = () => {
     this.setState({tvThruNum: this.state.tvThruNum + 10});
     this.scrollIntoView_tvBtnShowMore();
   }
   
+  //reduce display by 10 tvShows - adjust screen position
   tvShowLess = () => {
     this.setState({tvThruNum: this.state.tvThruNum - 10});
     this.scrollIntoView_tvBtnShowMore();
   }
 
+  //adjust screen position after click of showMore or showLess buttons
+  //tied to div with reference of {this.underTvShowMoreButton}
   scrollIntoView_tvBtnShowMore = () => {
     setTimeout(() => {
       this.underTvShowMoreButton.current.scrollIntoView({block: 'end', behavior: 'smooth'});

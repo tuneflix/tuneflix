@@ -8,9 +8,10 @@
     background-image: url(../wallpaper/frank-septillion-208829-unsplash.jpg);
     background-size: 100% 110%, cover;
     position: relative;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     display: block;
     position: absolute;
+    // opacity: .1;
 
     .header {
       width: 100%;
@@ -54,7 +55,7 @@
   }
 
   input:focus::-webkit-input-placeholder {
-    opacity: 0;
+    opacity: .30;
   }
 
   h3 {

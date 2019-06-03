@@ -33,9 +33,9 @@ class Search extends Component {
 
   render() {
     const { movResults, tvShowResults, image } = this.props.resultsReducer;
-    // console.log(movResults)
-    // console.log(tvShowResults)
-    // console.log(image)
+    console.log(movResults)
+    console.log(tvShowResults)
+    console.log(image)
     return (
       <div id="Search">
         <div className="background">
