@@ -1,1 +1,0 @@
-const {getMovieSongs, getImage} = require("./Movie")
