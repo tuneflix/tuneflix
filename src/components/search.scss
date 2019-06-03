@@ -1,9 +1,10 @@
 @import "../app.scss";
 
 .Search {
+  // border: 1px solid black;
   .background {
     width: 100vw;
-    height: 92vw;
+    height: 100vh;
     // background-color: $second-color;
     background-image: url(../wallpaper/pineapplecut.png);
 
@@ -14,14 +15,15 @@
     }
     .body {
       margin-top: 15vh;
-
-      p {
-        font-family: $second-font;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 
   h1 {
+    // border: 1px solid black;
     font-family: $first-font;
     font-size: 5em;
     font-weight: bolder;
@@ -29,43 +31,51 @@
     margin-top: 5vh;
     margin-bottom: 2vh;
     text-align: center;
-    color: $first-color;
+    color: $third-color;
   }
-  .userInput {
-    border-radius: 12px;
-    padding-left: 0.5vw;
-    margin: auto;
-    display: block;
-    width: 24vw;
-    height: 5.5vh;
-    font-size: 1.3em;
-    color: black;
-    text-align: left;
-    align-content: center;
-  }
+  .search-cont {
+    // border: 1px solid black;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-  input:focus {
-    outline: none;
-  }
+    .userInput {
+      border-radius: 12px;
+      // margin: 10px;
+      padding-left: 0.5vw;
+      display: block;
+      width: 24vw;
+      height: 3vh;
 
-  input:focus::-webkit-input-placeholder {
-    opacity: 0;
-  }
+      // font-family: $second-font;
+      font-size: 1.2em;
+      color: $fifth-color;
+      text-align: left;
+      align-content: center;
+    }
 
-  h3 {
+    input:focus {
+      outline: none;
+    }
+
+    input:focus::-webkit-input-placeholder {
+      opacity: 0;
+    }
+    i {
+      // border: 1px solid black;
+      display: block;
+      color: $fifth-color;
+    }
+  }
+  p {
+    // border: 1px solid black;
+    margin-top: 3vh;
+    width: 20vw;
     text-align: center;
-    font-size: 2em;
-  }
-
-  button {
-    border: none;
-    height: 4vh;
-    border-radius: 10px;
-    background-color: $fourth-color;
     font-family: $second-font;
-    font-size: 1em;
-    color: $second-color;
-    margin-top: 2vw;
-    margin-left: 55vw;
+    font-size: 1.2em;
+    color: $first-color;
   }
 }
