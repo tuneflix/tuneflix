@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux"
-import { getImage, getTvShows, getMovies, getMovieSongs } from "../../../ducks/resultsReducer"
+import { getMovieImdb, getTvShows, getMovies, getMovieSongs } from "../../../ducks/resultsReducer"
 import SongCard from '../../Shared/SongCard/SongCard'
 import Header from '../../Shared/Header/Header'
 import MediaInfo from "../../Shared/MediaInfo/MediaInfo"
@@ -24,28 +24,35 @@ class Movie extends React.Component {
     let lenghtofmovID = movID.length
     let year = movID.substring(lenghtofmovID - 4);
     if (isNaN(year)) {
-      this.props.getImage(movID);
+      this.props.getMovieImdb(movID);
     } else {
       let movIDWithoutYear = movID.substring(0, lenghtofmovID - 5);
-      this.props.getImage(movIDWithoutYear)
+      this.props.getMovieImdb(movIDWithoutYear)
 
     }
   }
 
 
   render() {
-    const { movResults, image, songResults, imdbLoading } = this.props.resultsReducer
+    const { movResults, movIMDB, songResults, imdbLoading } = this.props.resultsReducer
     const movName = this.props.match.params.movName
     
-    // if(image.length > 0){
-    //   const movID = this.props.match.params.movID
-    //   let year = movID.substring(movID.length - 4);
-    //   let index = image.findIndex(e => year == e.Year) 
-    // }
+    let filteredmovIMDB = [];
+    if(movIMDB.length > 0){
+      const movID = this.props.match.params.movID
+      let year = movID.substring(movID.length - 4);
+      if(isNaN(year) ===false ){
+        let arr = movIMDB.filter( e => e.Year === year );
+          if(arr[0]){filteredmovIMDB.push(arr[0])}
+        
+      }
+      console.log(filteredmovIMDB)
+      
+    }
 
     
     console.log(songResults)
-    console.log(image)
+    console.log(movIMDB)
     return (
         <div className="movie-body" >
           <Header />
@@ -53,11 +60,11 @@ class Movie extends React.Component {
             <h1>Loading!!!</h1>
           ) : (
               <div className = "movie-media-info">
-                  {image.length > 0 ?
+                  {filteredmovIMDB.length > 0 ?
                     <MediaInfo
-                    mediaImage={image[0].Poster}
-                    mediaTitle={image[0].Title}
-                    mediaYear={image[0].Year}
+                    mediaImage={filteredmovIMDB[0].Poster}
+                    mediaTitle={filteredmovIMDB[0].Title}
+                    mediaYear={filteredmovIMDB[0].Year}
                     /> 
                     :
                     <MediaInfo
@@ -81,9 +88,5 @@ function mapStateToProps (state){
           resultsReducer: state.resultsReducer
       }
     }
-export default connect(mapStateToProps, {getMovies,getImage,getMovieSongs})(Movie);
+export default connect(mapStateToProps, {getMovies,getMovieImdb,getMovieSongs})(Movie);
 
-// module.exports ={
-//   getMovieSongs,
-//   getImage
-// }

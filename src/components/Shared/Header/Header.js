@@ -27,8 +27,8 @@ class Header extends Component {
     } else {
       this.setState({ style: {} });
     }
-    console.log("pathname: ", this.props.location.pathname);
-    console.log("style: ", this.state.style);
+    // console.log("pathname: ", this.props.location.pathname);
+    // console.log("style: ", this.state.style);
   }
 
   handleEnter = e => {
