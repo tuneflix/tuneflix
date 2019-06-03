@@ -35,7 +35,6 @@ export function getMovies(userInput) {
 }
 
 export function getMovieSongs(movieName) {
-  
   return {
     type: GET_MOVIE_SONG,
     payload: axios.get(`/api/songs/movie/${movieName}`)
@@ -93,13 +92,12 @@ export default function reducer(state = initialState, action) {
         movResults: action.payload.data
       };
     case `${GET_MOVIE_SONG}_FULFILLED`:
-        
       return {
         ...state,
         songResults: action.payload.data
       };
     case `${GET_MOVIE_IMDB}_FULFILLED`:
-      console.log(action.payload.data)
+      console.log(action.payload.data);
       let filteredMovData = action.payload.data.filter(
         result => result.Type === "movie"
       );
