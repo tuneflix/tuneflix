@@ -119,8 +119,8 @@ class Results extends Component {
                 </div> : null}
                   <div id='underMovShowMoreButton' ref={this.underMovShowMoreButton}></div>
                 {this.state.movThruNum > 11 ?
-                <div>
-                  <button onClick={this.movShowLess} style={this.state.movStyleLess} >Show less . . .</button>
+                <div >
+                  <button id='movShowLessBtn' onClick={this.movShowLess} style={this.state.movStyleLess} >Show less . . .</button>
                 </div> : null}
                 </div>
           </div>
@@ -140,7 +140,7 @@ class Results extends Component {
                   <div id='underTvShowMoreButton' ref={this.underTvShowMoreButton}></div>
                 {this.state.tvThruNum > 11 ?
                 <div>
-                  <button onClick={this.tvShowLess} style={this.state.tvStyleLess} >Show less . . .</button>
+                  <button id='tvShowLessBtn' onClick={this.tvShowLess} style={this.state.tvStyleLess} >Show less . . .</button>
                 </div> : null}
                 </div>                
           </div>
