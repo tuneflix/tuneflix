@@ -80,10 +80,21 @@ class Results extends Component {
 
   const{ movResults, tvShowResults} = this.props.resultsReducer;
 
-  let movNames = movResults.map((movie, index) => <Link to={`/results/movie/${movie.name}/${movie.id}`}><li id={`mov${index}`} key={index}>{movie.name}</li></Link> );
+  let movNames = movResults.map((movie, index) => {
+    return <Link to={`/results/movie/${movie.name}/${movie.id}`}>
+              <li id={`mov${index}`} key={index}>{movie.name} 
+                <span className='toolTipText'>{movie.name}</span>
+              </li>
+            </Link>
+  });
 
-  let tvNames = tvShowResults.map((tv, index) => <Link to={`/results/tvshow/${tv.name}/${tv.id}`}><li id={`tv${index}`} key={index}>{tv.name}</li></Link> )
-  
+  let tvNames = tvShowResults.map((tv, index) => {
+    return <Link to={`/results/tvshow/${tv.name}/${tv.id}`}>
+            <li id={`tv${index}`} key={index}>{tv.name}
+              <span className='toolTipText'>{tv.name}</span>
+            </li>
+          </Link> 
+  })
   let showMovNames = movNames.slice(0, this.state.movThruNum); 
   let showTvNames = tvNames.slice(0, this.state.tvThruNum);
 
@@ -145,7 +156,7 @@ class Results extends Component {
                 </div>                
           </div>
       </div>
-                <p id = 'instructions'>Click on Movie/TV Show Title for More Info</p>
+                {/* <p id = 'instructions'>Click on Movie/TV Show Title for More Info</p> */}
     </div>
     );
   }

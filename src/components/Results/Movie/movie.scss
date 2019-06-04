@@ -3,11 +3,35 @@
 .movie-body {
   width: 100vw;
   height: 100vh;
-  background-color: $second-color;
+  // background-color: $second-color;
+  background-image: url(../../../wallpaper/nami.png);
+
   display: flex;
   justify-content: center;
   align-items: center;
   // border: 1px solid blue;
   
-  
+  .movie-media-info {
+    // border: 1px solid blue;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+
+    .song-cont {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .songs-label {
+        color: $second-color;
+        font-family: $first-font;
+        font-size: 1.8em;
+        text-align: center;
+      }
+
+    }
+  }
 }

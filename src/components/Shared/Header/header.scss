@@ -11,6 +11,8 @@
   justify-content: center;
   align-items: center;
 
+  z-index: 20;
+
   .header-cont {
     // border: 1px solid blue;
     width: 60vw;
@@ -26,7 +28,7 @@
       // border: 1px solid white;
       margin: 0;
       font-family: $first-font;
-      color: $second-color;
+      color: $third-color;
       font-size: 2.2em;
     }
     .input-cont {
