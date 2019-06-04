@@ -1,0 +1,39 @@
+@import "../../../app.scss";
+
+.Error{
+  width: 100vw;
+  height: 100vh;
+  background-color:$first-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .error-content {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+    // border:1px solid red;
+  
+        .video-tag {
+            width: 52vw;
+            border-radius: 20px;
+            box-shadow: 5px 10px 8px #424141;
+           
+            
+        }
+
+        h1 {
+            color:white;
+            font-size: 3vw;
+            text-align: center;
+            font-family: $first-font
+        }
+  }
+
+      
+      
+
+}

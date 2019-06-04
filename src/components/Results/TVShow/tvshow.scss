@@ -1,0 +1,80 @@
+@import "../../../app.scss";
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  // background-color: $second-color;
+  background-image: url(../../../wallpaper/nami.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .tvshow-wrapper {
+    // border: 1px solid blue;
+    width: 70vw;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .tvshow-info-cont {
+      // border: 1px solid white;
+      margin-top: 100px;
+      margin-left: 100px;
+      width: 40vw;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: center;
+
+      .tab-cont {
+        // border: 1px solid black;
+        position: absolute center;
+        height: 2px;
+        width: 40vw;
+        background-color: $first-color;
+        border-radius: 5px;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+
+        .tab {
+          border: none;
+          margin-left: 15px;
+          border-radius: 0px 5px 0px;
+          background-color: $third-color;
+          color: $second-color;
+          font-family: $first-font;
+          height: 2.5vh;
+        }
+        .tab:hover {
+          background-color: $fourth-color !important;
+        }
+      }
+      .info-in-view {
+        text-align: center;
+        font-family: $first-font;
+        font-size: 1.8em;
+        color: $second-color;
+        margin-top: 20px;
+      }
+      ul {
+        margin-top: 20px;
+        list-style: none;
+        line-height: 3vh;
+
+        .episode {
+          font-family: $second-font;
+          font-size: 1.5em;
+          color: $second-color;
+          cursor: pointer;
+        }
+
+        .episode:hover {
+          color: $third-color;
+        }
+      }
+    }
+  }
+}
