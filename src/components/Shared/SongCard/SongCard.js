@@ -17,13 +17,6 @@ function SongCard(props) {
                 </a>
               );
             }
-            // else if (e.id === "itunes-tunefind") {
-            //   return (
-            //     <a href={e.url} target="_blank" key={i}>
-            //       <button>IT</button>
-            //     </a>
-            //   );
-            // }
             else if (e.id === "amazon-tunefind") {
               return (
                 <a href={e.url} target="_blank" key={i} id ={`amazonMusic${i}`}>

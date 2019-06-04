@@ -6,12 +6,12 @@
     width: 100vw;
     height: 100vh;
     // background-color: $second-color;
-    background-image: url(../wallpaper/pineapplecut.png);
-    // background-size: 100% 110%, cover;
-    // position: relative;
-    // background-repeat: repeat;
-    // display: block;
-    // position: absolute;
+    background-image: url(../wallpaper/vinyl.jpeg);
+    background-size: 100% 110%, cover;
+    position: relative;
+    background-repeat: repeat;
+    display: block;
+    position: absolute;
     // opacity: .1;
 
     .header {
@@ -20,11 +20,16 @@
       // background-color: $third-color;
     }
     .body {
-      margin-top: 15vh;
+      // margin-top: 15vh;
+      // border: 1px solid black;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
+
+      a {
+        text-decoration: none;
+      }
     }
   }
 
@@ -49,18 +54,20 @@
 
     .userInput {
       border-radius: 12px;
-      // margin: 10px;
-      padding-left: 0.5vw;
+      padding-left: .7vw;
+      border: none;
       display: block;
       width: 24vw;
       height: 3vh;
 
-      // <<<<<<<HEAD
       // font-family: $second-font;
-      font-size: 1.2em;
+      font-size: .8em;
       color: $fifth-color;
       text-align: left;
       align-content: center;
+    }
+    input:focus {
+      outline: none;
     }
     input:focus::-webkit-input-placeholder {
       opacity: 0.3;
@@ -71,7 +78,8 @@
     i {
       // border: 1px solid black;
       display: block;
-      color: $fifth-color;
+      color: $second-color;
+      margin-left: 10px;
     }
   }
   p {
@@ -80,7 +88,7 @@
     width: 20vw;
     text-align: center;
     font-family: $second-font;
-    font-size: 1.2em;
-    color: $first-color;
+    font-size: 1em;
+    color: $second-color;
   }
 }

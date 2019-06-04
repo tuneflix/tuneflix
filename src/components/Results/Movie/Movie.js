@@ -5,6 +5,7 @@ import SongCard from '../../Shared/SongCard/SongCard'
 import Header from '../../Shared/Header/Header'
 import MediaInfo from "../../Shared/MediaInfo/MediaInfo"
 import "./movie.scss"
+import { breakStatement } from "@babel/types";
 
 
 class Movie extends React.Component {
@@ -73,8 +74,11 @@ class Movie extends React.Component {
                     
                     /> 
                     
-                  }
+                  }  
+                    <div className='song-cont'> 
+                    <h3 className='songs-label'>Songs from <br/> {movName}</h3>
                      <SongCard songResults = {songResults}/>
+                    </div>
               </div>
             )
           }

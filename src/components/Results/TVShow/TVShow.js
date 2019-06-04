@@ -33,7 +33,7 @@ function TVShow(props) {
         className="tab"
         style={{
           background:
-            season.season_number === currSeason ? "#0d0d0d" : "#f25757"
+            season.season_number === currSeason ?  "#f25757" : "#658c8c"
         }}
         key={i}
         onClick={() => {
@@ -95,18 +95,18 @@ function TVShow(props) {
           <div className="tvshow-info-cont">
             <div className="tab-cont">{seasonTabs}</div>
             {displayEpiSongs ? (
-              <>
+              <div className='song-cards-cont'>
                 <h3 className="info-in-view">Songs in {currEpisode}</h3>
                 <SongCard songResults={songResults} />
-              </>
+              </div>
             ) : tvShowEpisodes.length > 0 ? (
-              <>
-                <h3 className="info-in-view">Episodes</h3>
+              <div className='song-cards-cont'>
+                <h3 className="info-in-view">Episodes in Season {currSeason}</h3>
                 <ul>{episodes}</ul>
-              </>
+              </div>
             ) : (
               <h3 className="info-in-view">
-                No episodes to show bc TuneFind API suuuuucks
+                Due to limited trial data - no episodes available at this time...
               </h3>
             )}
           </div>
