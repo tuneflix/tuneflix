@@ -47,7 +47,7 @@ export default class App extends React.Component {
       url: "https://audd.p.rapidapi.com",
       headers: {
         "X-RapidAPI-Host": "audd.p.rapidapi.com",
-        "X-RapidAPI-Key": "d772e50aaemsh2fd2a2482f3c99fp1e2349jsn501b72a30639",
+        "X-RapidAPI-Key": process.env.REACT_APP_AUDD_KEY,
       },
       data: formData
     }).then(response => {
