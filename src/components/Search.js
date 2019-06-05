@@ -4,16 +4,24 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { getMovies, getTvShows, getTvShowImdb } from "../ducks/resultsReducer";
 import { Link } from "react-router-dom";
+import Audd from "./Audd"
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInput: ""
-      // movResults: []
+      userInput: "",
+      auddOn: false
     };
   }
 
+  clickAudd = e => {
+    
+    this.setState({
+      auddOn: !this.state.auddOn
+    })
+   
+  }
   handleEnter = e => {
     if (e.key === "Enter") {
       this.handleClick();
@@ -29,7 +37,7 @@ class Search extends Component {
     this.props.getMovies(userInput);
     this.props.getTvShows(userInput);
     this.props.history.push('/results');
-}
+  }
 
   render() {
     const { movResults, tvShowResults, image } = this.props.resultsReducer;
@@ -56,6 +64,12 @@ class Search extends Component {
                 </i>
                 {/* </button> */}
               </Link>
+              <div>
+                 <i className="material-icons" onClick ={this.clickAudd}>
+                  mic
+                </i>
+                {this.state.auddOn ? <Audd /> : null}
+              </div>
             </div>
             <p>
               Discover soundtracks by searching your favorite movies and tv
