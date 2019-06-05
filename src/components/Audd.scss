@@ -1,0 +1,21 @@
+.body-audd{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    align-items: stretch;
+    border:1px solid red;
+    margin: auto;
+    position: absolute;
+    margin-right:8vw;
+    
+  }
+  
+  .sound-wave{
+    /* width: 50vw; */
+  }
+  
+  .buttonAndAudio{
+    display: flex;
+    justify-content: space-around;
+    
+  }
