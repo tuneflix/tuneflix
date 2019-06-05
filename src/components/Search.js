@@ -64,17 +64,17 @@ class Search extends Component {
                 </i>
                 {/* </button> */}
               </Link>
-              <div>
+              
                  <i className="material-icons" onClick ={this.clickAudd}>
                   mic
                 </i>
-                {this.state.auddOn ? <Audd /> : null}
-              </div>
+              
             </div>
             <p>
               Discover soundtracks by searching your favorite movies and tv
               series!
             </p>
+                {this.state.auddOn ? <Audd /> : null}
           </div>
         </div>
       </div>
