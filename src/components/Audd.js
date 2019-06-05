@@ -12,6 +12,7 @@ export default class App extends React.Component {
       record: false,
       recordedBlob: null,
       resReceived: false,
+      noResult: false,
       auddSong: []
     }
 
@@ -51,6 +52,12 @@ export default class App extends React.Component {
       data: formData
     }).then(response => {
       console.log(response)
+
+      response.data.result === null ?
+      this.setState({
+        noResult: true,
+      })
+      :
       this.setState({
         auddSong: response.data.result,
         resReceived:true
@@ -61,10 +68,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.file);
-    // console.log(this.state.auddSong)
-    // console.log(this.state.recordedBlob)
-    
     return (
       <div className="body-audd">
         <ReactMic
@@ -72,20 +75,23 @@ export default class App extends React.Component {
           className="sound-wave"
           onStop={this.onStop}
           onData={this.onData}
-          strokeColor="#000000"
-          backgroundColor="#ffffff" />
-        <div className="buttonAndAudio">
-          <button onClick={this.startRecording} type="button">Start</button>
-        </div>
-      {this.state.resReceived ? 
-            <div style={{color: "white"}}>
+          strokeColor="black"
+          backgroundColor="#f25757" />
 
-              <h3>Album : {this.state.auddSong.album}</h3>
-              <h3>Artist: {this.state.auddSong.artist}</h3>
-              <h3>Relase Date : {this.state.auddSong.release_date}</h3>
+        
+        <div className="buttonAndAudio">
+          <p>Record and identify a song you're listening to right now!</p>
+          <button onClick={this.startRecording} type="button">Record</button>
+        </div>
+      {this.state.resReceived?
+            <div className='auddResult'>
+
               <h3>Title : {this.state.auddSong.title}</h3>
+              <h3>Artist: {this.state.auddSong.artist}</h3>
+              <h3>Album : {this.state.auddSong.album}</h3>
+              <h3>Relase Date : {this.state.auddSong.release_date}</h3>
             </div>
-          : null}
+          : this.state.noResult ? <p>No result found</p> : null}
       </div>
     );
   }
