@@ -43,9 +43,13 @@ class Header extends Component {
 
   handleClick = () => {
     const { userInput } = this.state;
-    this.props.getMovies(userInput);
-    this.props.getTvShows(userInput);
-    this.props.getTvShowImdb(userInput);
+    if(userInput.length>0){
+      this.props.getMovies(userInput);
+      this.props.getTvShows(userInput);
+      this.props.getTvShowImdb(userInput);
+    }else{
+      alert("Please Enter Movie or TvShow Name")
+    }
     this.props.history.push("/results");
     console.log("props: ", this.props);
     this.setState({userInput: ''});

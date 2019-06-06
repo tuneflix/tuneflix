@@ -6,7 +6,7 @@ function SongCard(props) {
   let songCards = props.songResults.map((song, i) => {
     return (
       <div key={i} className="card" id={`song-card${i}`}>
-        <h2>{song.name}</h2> <br />
+        <h2>{song.name.length < 68 ? `${song.name}` : `${song.name.substring(0,65)}...` }</h2> <br />
         <h4>{song.artist.name}</h4>
         <div className="icon-cont">
           {song.stores.map((e, i) => {
