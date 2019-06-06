@@ -7,21 +7,31 @@
     height: 100vh;
     // background-color: $second-color;
     background-image: url(../wallpaper/vinyl.jpeg);
-    background-size: 100% 110%, cover;
+    background-size: 100% 100%, contain;
     position: relative;
-    background-repeat: repeat;
     display: block;
     position: absolute;
-    // opacity: .1;
 
-    .header {
-      width: 100%;
-      height: 8vh;
-      // background-color: $third-color;
+    @include mq("mobile") {
+      background-size: 200% 100%, contain;
     }
+    @include mq("tablet") {
+      background-size: 150% 100%, contain;
+    }
+    @include mq("standard") {
+      background-size: 110% 100%, contain;
+    }
+    @include mq("high-res") {
+      background-size: 105% 100%, contain;
+    }
+    @include mq("wide") {
+      background-size: 110% 100%, contain;
+    }
+    @include mq("extra-wide") {
+      background-size: 100% 115%, contain;
+    }
+
     .body {
-      // margin-top: 15vh;
-      // border: 1px solid black;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -43,29 +53,98 @@
     margin-bottom: 2vh;
     text-align: center;
     color: $third-color;
-    opacity: .9;
+    opacity: 0.9;
+
+    @include mq("mobile") {
+      font-size: 4em;
+    }
+    @include mq("tablet") {
+      font-size: 5em;
+    }
+    @include mq("standard") {
+      font-size: 4.5em;
+    }
+    @include mq("high-res") {
+      font-size: 5em;
+    }
+    @include mq("wide") {
+      font-size: 5.5em;
+    }
+    @include mq("extra-wide") {
+      font-size: 5.5em;
+    }
   }
   .search-cont {
-    // border: 1px solid black;
+    // border: 1px solid white;
     width: 50vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
+    @include mq("mobile") {
+      width: 70vw;
+    }
+    @include mq("tablet") {
+      width: 60vw;
+    }
+    @include mq("standard") {
+      width: 50vw;
+    }
+    @include mq("high-res") {
+      width: 45vw;
+    }
+    @include mq("wide") {
+      width: 40vw;
+    }
+    @include mq("extra-wide") {
+      width: 35vw;
+    }
+
     .userInput {
       border-radius: 12px;
-      padding-left: .7vw;
+      padding-left: 0.7vw;
       border: none;
       display: block;
       width: 24vw;
       height: 3vh;
 
       // font-family: $second-font;
-      font-size: .8em;
+      font-size: 0.8em;
       color: $fifth-color;
       text-align: left;
       align-content: center;
+
+      @include mq("mobile") {
+        border-radius: 9px;
+        width: 60vw;
+        font-size: 0.6em;
+      }
+      @include mq("tablet") {
+        border-radius: 11px;
+        width: 50vw;
+        font-size: 0.8em;
+      }
+      @include mq("standard") {
+        border-radius: 12px;
+        width: 40vw;
+        font-size: 0.8em;
+      }
+      @include mq("high-res") {
+        border-radius: 12px;
+        width: 35vw;
+        font-size: 0.8em;
+      }
+      @include mq("wide") {
+        border-radius: 15px;
+        width: 30vw;
+        font-size: 0.8em;
+      }
+      @include mq("extra-wide") {
+        border-radius: 15px;
+        width: 25vw;
+        font-size: 1em;
+      }
     }
     input:focus {
       outline: none;
@@ -92,5 +171,30 @@
     font-family: $second-font;
     font-size: 1em;
     color: $second-color;
+
+    @include mq("mobile") {
+      width: 50vw;
+      font-size: 0.8em;
+    }
+    @include mq("tablet") {
+      width: 40vw;
+      font-size: 1em;
+    }
+    @include mq("standard") {
+      width: 40vw;
+      font-size: 1em;
+    }
+    @include mq("standard") {
+      width: 35vw;
+      font-size: 1em;
+    }
+    @include mq("wide") {
+      width: 30vw;
+      font-size: 1.2em;
+    }
+    @include mq("extra-wide") {
+      width: 20vw;
+      font-size: 1.2em;
+    }
   }
 }

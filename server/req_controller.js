@@ -60,17 +60,16 @@ module.exports = {
 
         req.end(function(res) {
           if (res.error) {
-            return resolve([])
+            return resolve([]);
           }
-          
+
           return resolve(res.body.songs);
-          
         });
       });
     };
     results().then(body => {
-      res.status(200).json(body)});
-    
+      res.status(200).json(body);
+    });
   },
   getTvShow: (req, res) => {
     const { userInput } = req.params;
@@ -238,13 +237,112 @@ module.exports = {
       });
     };
     results().then(body => {
-      if(body === undefined){
+      if (body === undefined) {
         // console.log(`undefined ${body}`)
-        res.status(200).json([])
+        res.status(200).json([]);
       } else {
         // console.log(body)
-        res.status(200).json(body)
+        res.status(200).json(body);
       }
     });
+  },
+  findArtist: (req, res) => {
+    const { artistName } = req.params;
+
+    const results = () => {
+      return new Promise((resolve, reject) => {
+        var req = unirest(
+          "GET",
+          "https://76b663e5.api.tunefind.com/api/v2/search/artist"
+        );
+
+        req.query({
+          q: artistName,
+          limit: "10"
+        });
+
+        req.headers({
+          "cache-control": "no-cache",
+          Connection: "keep-alive",
+          "accept-encoding": "gzip, deflate",
+          Host: "76b663e5.api.tunefind.com",
+          "Postman-Token":
+            "8d3663b8-c439-4d1c-8f80-749778389bd8,151a25d2-08ea-491d-9f0f-e08acfeb6958",
+          "Cache-Control": "no-cache",
+          Accept: "*/*",
+          "User-Agent": "PostmanRuntime/7.13.0",
+          Authorization:
+            "Basic NzZiNjYzZTVhYTE1NGJlYjE2YzNkM2Y2NzMxM2E0OWU6OGM0ZTVkMGU1MjdjZDNiZDlhZjJhN2RkNDVmM2ZiZDM="
+        });
+
+        req.end(function(res) {
+          if (res.error) throw new Error(res.error);
+          return resolve(res.body);
+        });
+      });
+    };
+    results().then(body => res.status(200).json(body));
+  },
+  getArtist: (req, res) => {
+    const { artistID } = req.params;
+    const results = () => {
+      return new Promise((resolve, reject) => {
+        var req = unirest(
+          "GET",
+          `https://76b663e5.api.tunefind.com/api/v2/artist/${artistID}`
+        );
+
+        req.headers({
+          "cache-control": "no-cache",
+          Connection: "keep-alive",
+          "accept-encoding": "gzip, deflate",
+          Host: "76b663e5.api.tunefind.com",
+          "Postman-Token":
+            "56d2880c-7ed5-4180-aad2-010c8dbaba46,4b3cc5e7-da39-41e8-97de-322b5af7b1e8",
+          "Cache-Control": "no-cache",
+          Accept: "*/*",
+          "User-Agent": "PostmanRuntime/7.13.0",
+          Authorization:
+            "Basic NzZiNjYzZTVhYTE1NGJlYjE2YzNkM2Y2NzMxM2E0OWU6OGM0ZTVkMGU1MjdjZDNiZDlhZjJhN2RkNDVmM2ZiZDM="
+        });
+
+        req.end(function(res) {
+          if (res.error) throw new Error(res.error);
+          return resolve(res.body);
+        });
+      });
+    };
+    results().then(body => res.status(200).json(body));
+  },
+  getSong: (req, res) => {
+    const { songID } = req.params;
+    const results = () => {
+      return new Promise((resolve, reject) => {
+        var req = unirest(
+          "GET",
+          `https://76b663e5.api.tunefind.com/api/v2/song/${songID}`
+        );
+
+        req.headers({
+          "cache-control": "no-cache",
+          Connection: "keep-alive",
+          "accept-encoding": "gzip, deflate",
+          Host: "76b663e5.api.tunefind.com",
+          "Postman-Token":
+            "e80a4f71-80eb-44c3-ba84-5d19c6967292,7d4abc24-7609-4fff-b2a2-c1c2f1038440",
+          "Cache-Control": "no-cache",
+          Accept: "*/*",
+          "User-Agent": "PostmanRuntime/7.13.0",
+          Authorization:
+            "Basic NzZiNjYzZTVhYTE1NGJlYjE2YzNkM2Y2NzMxM2E0OWU6OGM0ZTVkMGU1MjdjZDNiZDlhZjJhN2RkNDVmM2ZiZDM="
+        });
+
+        req.end(function(res) {
+          if (res.error) throw new Error(res.error);
+          return resolve(res.body);
+        });
+      });
+    };
+    results().then(body => res.status(200).json(body));
   }
 };

@@ -4,7 +4,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { getMovies, getTvShows, getTvShowImdb } from "../ducks/resultsReducer";
 import { Link } from "react-router-dom";
-import Audd from "./Audd"
+import Audd from "./Audd";
 
 class Search extends Component {
   constructor(props) {
@@ -16,12 +16,10 @@ class Search extends Component {
   }
 
   clickAudd = e => {
-    
     this.setState({
       auddOn: !this.state.auddOn
-    })
-   
-  }
+    });
+  };
   handleEnter = e => {
     if (e.key === "Enter") {
       this.handleClick();
@@ -49,13 +47,12 @@ class Search extends Component {
 
   render() {
     const { movResults, tvShowResults, image } = this.props.resultsReducer;
-    console.log(movResults)
-    console.log(tvShowResults)
-    console.log(image)
+    console.log(movResults);
+    console.log(tvShowResults);
+    console.log(image);
     return (
       <div id="Search">
         <div className="background">
-          <div className="header" />
           <div className="body">
             <h1>TuneFlix</h1>
             <div className="search-cont">
@@ -82,7 +79,7 @@ class Search extends Component {
               Discover soundtracks by searching your favorite movies and tv
               series!
             </p>
-                {this.state.auddOn ? <Audd /> : null}
+            {this.state.auddOn ? <Audd /> : null}
           </div>
         </div>
       </div>
