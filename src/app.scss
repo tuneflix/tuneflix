@@ -11,11 +11,12 @@ $first-font: Carter One;
 $second-font: Josefin Sans;
 
 $breakpoints: (
-  "mobile": 400px,
+  "mobile": 350px,
   "tablet": 700px,
-  "standard": 850px,
+  "standard": 800px,
   "high-res": 1000px,
-  "wide": 1200px
+  "wide": 1250px,
+  "extra-wide": 1400px
 );
 @mixin mq($width, $type: min) {
   @if map_has_key($breakpoints, $width) {
