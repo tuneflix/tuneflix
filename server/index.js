@@ -25,6 +25,11 @@ app.get(
   "/api/tvshow/:tvshowName/season/:seasonNum/episode/:episodeID",
   rc.getTvShowEpisode
 );
+//--artist endpoints
+app.get("/api/search/artist/:artistName", rc.findArtist);
+app.get("/api/artist/:artistID", rc.getArtist);
+//--song endpoint
+app.get("/api/song/:songID", rc.getSong);
 
 //IMDB Endpoints
 app.get("/api/imdb/:userInput", rc.getIMDB);

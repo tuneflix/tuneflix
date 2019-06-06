@@ -1,6 +1,6 @@
 /* Color Theme Swatches in Hex */
 $first-color: #658c8c;
-$second-color: #F8F8EC;
+$second-color: #f8f8ec;
 // $second-color: #f3f2e2;
 $third-color: #f25757;
 $fourth-color: #a64141;
@@ -9,6 +9,25 @@ $fifth-color: black;
 
 $first-font: Carter One;
 $second-font: Josefin Sans;
+
+$breakpoints: (
+  "mobile": 400px,
+  "tablet": 700px,
+  "standard": 850px,
+  "high-res": 1000px,
+  "wide": 1200px
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
 
 * {
   margin: 0;
