@@ -17,6 +17,26 @@
     width: 60vw;
     height: 15vh;
   }
+  @include mq("tablet") {
+    width: 50vw;
+    height: 15vh;
+  }
+  @include mq("standard") {
+    width: 40vw;
+    height: 20vh;
+  }
+  @include mq("high-res") {
+    width: 35vw;
+    height: 20vh;
+  }
+  @include mq("wide") {
+    width: 30vw;
+    height: 20vh;
+  }
+  @include mq("extra-wide") {
+    width: 25vw;
+    height: 20vh;
+  }
 
   .sound-wave {
     width: 30vw;
@@ -25,8 +45,28 @@
     opacity: 0.9;
 
     @include mq("mobile") {
-      width: 55vw;
+      width: 60vw;
       height: 3vh;
+    }
+    @include mq("tablet") {
+      width: 50vw;
+      height: 3vh;
+    }
+    @include mq("standard") {
+      width: 40vw;
+      height: 4.5vh;
+    }
+    @include mq("high-res") {
+      width: 35vw;
+      height: 4.5vh;
+    }
+    @include mq("wide") {
+      width: 30vw;
+      height: 4.5vh;
+    }
+    @include mq("extra-wide") {
+      width: 25vw;
+      height: 4.5vh;
     }
   }
 
@@ -58,6 +98,23 @@
 
       @include mq("mobile") {
         width: 15vw;
+      }
+      @include mq("tablet") {
+        width: 8vw;
+      }
+      @include mq("standard") {
+        width: 6vw;
+      }
+      @include mq("high-res") {
+        width: 6vw;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      @include mq("wide") {
+        width: 4vw;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 0.85em;
       }
     }
     button:focus {
