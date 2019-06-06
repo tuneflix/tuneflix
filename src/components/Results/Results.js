@@ -12,11 +12,11 @@ class Results extends Component {
     this.state = {
       currentStart: 0,
       currentEnd: 0,
-      movLength: 0,
+      movLength: this.props.resultsReducer.movResults.length,
       movThruNum: 10,
       movStyleMore: {},
       movStyleLess: {},
-      tvLength: 0,
+      tvLength: this.props.resultsReducer.tvShowResults.length,
       tvThruNum: 10,
       tvStyleMore: {},
       tvStyleLess: {},
