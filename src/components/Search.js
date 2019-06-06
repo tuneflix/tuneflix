@@ -31,11 +31,19 @@ class Search extends Component {
   };
 
   handleClick = () => {
+   
     const { userInput } = this.state;
-    this.props.getMovies(userInput);
-    this.props.getTvShows(userInput);
-    this.props.history.push("/results");
-  };
+    
+    if( userInput.length > 0 ) {
+      this.props.getMovies(userInput);
+      this.props.getTvShows(userInput);
+      this.props.history.push('/results');
+   
+    }else {
+      alert("Please Enter Movie or TvShow Name")
+      
+    }
+  }
 
   render() {
     const { movResults, tvShowResults, image } = this.props.resultsReducer;
@@ -54,17 +62,18 @@ class Search extends Component {
                 className="userInput"
                 placeholder="Search TuneFlix for Movie or TV Series"
               />
-              <Link to="/results">
+              {/* <Link to="/results"> */}
                 {/* <button onClick={this.handleClick}> */}
+                {/* </button> */}
+              {/* </Link> */}
+              
                 <i onClick={this.handleClick} className="material-icons">
                   search
                 </i>
-                {/* </button> */}
-              </Link>
-
-              <i className="material-icons" onClick={this.clickAudd}>
-                mic
-              </i>
+                 <i className="material-icons" onClick ={this.clickAudd}>
+                  mic
+                </i>
+              
             </div>
             <p>
               Discover soundtracks by searching your favorite movies and tv
