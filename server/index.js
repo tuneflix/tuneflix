@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const path = require('path');
 const app = express();
 const {
   SERVER_PORT,
@@ -12,6 +13,7 @@ const {
 const rc = require("./req_controller.js");
 
 app.use(express.json());
+app.use( express.static( `${__dirname}/../build` ) );
 
 //TUNEFIND
 //--movie endpoints
@@ -33,5 +35,9 @@ app.get("/api/song/:songID", rc.getSong);
 
 //IMDB Endpoints
 app.get("/api/imdb/:userInput", rc.getIMDB);
+
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
