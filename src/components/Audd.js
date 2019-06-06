@@ -75,6 +75,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    console.log(process.env.REACT_APP_AUDD_KEY);
     return (
       <div className="body-audd">
         <ReactMic

@@ -1,59 +1,73 @@
-@import '../app.scss';
+@import "../app.scss";
 
-.body-audd{
-    // border:1px solid red;
-    margin: auto;
-    margin-top: 20px;
+.body-audd {
+  // border:1px solid red;
+  margin: auto;
+  margin-top: 20px;
+  width: 30vw;
+  background: rgba(0, 0, 0, 0.692);
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include mq("mobile") {
+    width: 60vw;
+    height: 15vh;
+  }
+
+  .sound-wave {
     width: 30vw;
-    background: rgba(0, 0, 0, 0.692);
-    padding: 5px;
+    height: 2.5vh;
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    opacity: 0.9;
 
-    .sound-wave{
-      width: 30vw;
-      height: 2.5vh;
-      border-radius: 5px;
-      opacity: .9
-    }
-    
-    .buttonAndAudio{
-      width: 20vw;
-      height: 10vh;
-      // border: 1px solid white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-
-      p {
-        margin: 0;
-        padding: 0;
-      }
-
-      button {
-        width: 5vw;
-        height: 2.5vh;
-        border: none;
-        border-radius: 5px;
-        background-color: $third-color;
-        color: $second-color;
-        font-family: $second-font;
-        font-weight: bold;
-      }
-      button:focus {
-        outline: none
-      }
-
-    }
-    
-    .auddResult {
-      margin-top: 10px;
-      font-family: $second-font;
-      color: $second-color;
+    @include mq("mobile") {
+      width: 55vw;
+      height: 3vh;
     }
   }
-  
+
+  .buttonAndAudio {
+    width: 20vw;
+    height: 10vh;
+    // border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 8px;
+      width: 5vw;
+      height: 2.5vh;
+      border: none;
+      border-radius: 5px;
+      background-color: $third-color;
+      color: $second-color;
+      font-family: $second-font;
+      font-weight: bold;
+
+      @include mq("mobile") {
+        width: 15vw;
+      }
+    }
+    button:focus {
+      outline: none;
+    }
+  }
+
+  .auddResult {
+    margin-top: 10px;
+    font-family: $second-font;
+    color: $second-color;
+  }
+}
