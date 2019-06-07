@@ -10,26 +10,49 @@
 
   .tvshow-wrapper {
     // border: 1px solid blue;
-    width: 70vw;
-    height: 80vh;
-
+    width: 80vw;
+    // height: 80vh;
+    
     display: flex;
+    justify-content: space-around;
     flex-direction: row;
     align-items: center;
+    @include mq("mobile") {
+      flex-direction: column;
+    }
+    @include mq("tablet") {
+      flex-direction: column;
+    }
+    @include mq("standard") {
+      flex-direction: column;
+    }
+    @include mq("high-res") {
+      flex-direction: row;
+    }
+    @include mq("wide") {
+      flex-direction: row;
+    }
+    @include mq("extra-wide") {
+      flex-direction: row;
+    }
 
     .tvshow-info-cont {
       // border: 1px solid white;
-      margin-top: 100px;
-      margin-left: 100px;
-      width: 40vw;
-      height: 70vh;
+      // margin-top: 100px;
+      // margin-left: 100px;
+      // width: 40vw;
+      height: 50vh;
+     
       display: flex;
       flex-direction: column;
       // justify-content: center;
       align-items: center;
-
+      // .song-cards-cont{
+      //   border:1px solid blue;
+       
+      // }
       .tab-cont {
-        // border: 1px solid black;
+        // border: 1px solid white;
         position: absolute center;
         height: 2px;
         width: 40vw;
@@ -40,6 +63,7 @@
         align-items: flex-end;
 
         .tab {
+          
           border: none;
           margin-left: 15px;
           border-radius: 0px 5px 0px;
@@ -47,6 +71,26 @@
           color: $second-color;
           font-family: $first-font;
           height: 2.5vh;
+          font-size: 0.85em;
+          @include mq("mobile") {
+            font-size: 0.6em;
+          }
+          @include mq("tablet") {
+            font-size: 0.85em;
+          }
+          @include mq("standard") {
+           
+            font-size: 0.85em;
+          }
+          @include mq("high-res") {
+            font-size: 0.85em;
+          }
+          @include mq("wide") {
+            font-size: 0.85em;
+          }
+          @include mq("extra-wide") {
+            font-size: 0.85em;
+          }
         }
         .tab:hover {
           background-color: $fourth-color !important;
@@ -55,20 +99,60 @@
       .info-in-view {
         text-align: center;
         font-family: $first-font;
-        font-size: 1.8em;
+        font-size: 1.5em;
         color: $second-color;
         margin-top: 20px;
+        // border:1px solid blue;
+        @include mq("mobile") {
+          font-size: 1em;
+        }
+        @include mq("tablet") {
+          font-size: 1.5em;
+        }
+        @include mq("standard") {
+         
+          font-size: 1.5em;
+        }
+        @include mq("high-res") {
+          font-size: 1.5em;
+        }
+        @include mq("wide") {
+          font-size: 1.5em;
+        }
+        @include mq("extra-wide") {
+          font-size: 1.5em;
+        }
       }
       ul {
         margin-top: 20px;
         list-style: none;
         line-height: 3vh;
+        // border:1px solid blue;
 
         .episode {
           font-family: $second-font;
           font-size: 1.5em;
           color: $second-color;
           cursor: pointer;
+          @include mq("mobile") {
+            font-size: 1em;
+          }
+          @include mq("tablet") {
+            font-size: 1.5em;
+          }
+          @include mq("standard") {
+           
+            font-size: 1.5em;
+          }
+          @include mq("high-res") {
+            font-size: 1.5em;
+          }
+          @include mq("wide") {
+            font-size: 1.5em;
+          }
+          @include mq("extra-wide") {
+            font-size: 1.5em;
+          }
         }
 
         .episode:hover {

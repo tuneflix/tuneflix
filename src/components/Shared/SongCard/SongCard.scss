@@ -12,12 +12,38 @@
   display: grid;
   place-items: end center;
   overflow-x: scroll;
+
+  @include mq("mobile") {
+    width: 80vw;
+    padding-top: 2vh;
+  }
+  @include mq("tablet") {
+    width: 70vw;
+    padding-top: 2vh;
+  }
+  @include mq("standard") {
+    width: 70vw;
+    padding-top: 2vh;
+  }
+  @include mq("high-res") {
+    width: 50vw;
+    padding-top: 5vh;
+  }
+  @include mq("wide") {
+    width: 50vw;
+    padding-top: 5vh;
+  }
+  @include mq("extra-wide") {
+    width: 50vw;
+    padding-top: 5vh;
+  }
   ::-webkit-scrollbar-track {
     background: black; 
   }
 
   .cards {
     display: flex;
+    
  
   }
 
