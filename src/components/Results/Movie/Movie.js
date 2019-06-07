@@ -76,7 +76,7 @@ class Movie extends React.Component {
                     
                   }  
                     <div className='song-cont'> 
-                    <h3 className='songs-label'>Songs from <br/> {movName}</h3>
+                     <h3 className='songs-label'>Songs from <br/> {movName}</h3>
                      <SongCard songResults = {songResults}/>
                     </div>
               </div>

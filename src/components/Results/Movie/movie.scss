@@ -14,10 +14,29 @@
   .movie-media-info {
     // border: 1px solid blue;
     width: 80vw;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    @include mq("mobile") {
+      flex-direction: column;
+    }
+    @include mq("tablet") {
+      flex-direction: column;
+    }
+    @include mq("standard") {
+      flex-direction: column;
+    }
+    @include mq("high-res") {
+      flex-direction: row;
+    }
+    @include mq("wide") {
+      flex-direction: row;
+    }
+    @include mq("extra-wide") {
+      flex-direction: row;
+    }
 
 
     .song-cont {
@@ -30,6 +49,7 @@
         font-family: $first-font;
         font-size: 1.8em;
         text-align: center;
+        
       }
 
     }
