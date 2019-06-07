@@ -43,40 +43,44 @@ class Header extends Component {
 
   handleClick = () => {
     const { userInput } = this.state;
-    if(userInput.length>0){
+    if (userInput.length > 0) {
       this.props.getMovies(userInput);
       this.props.getTvShows(userInput);
       this.props.getTvShowImdb(userInput);
-    }else{
-      alert("Please Enter Movie or TvShow Name")
+    } else {
+      alert("Please Enter Movie or TvShow Name");
     }
     this.props.history.push("/results");
     console.log("props: ", this.props);
-    this.setState({userInput: ''});
+    this.setState({ userInput: "" });
     this.clearInputBox();
   };
 
-  clearInputBox = () => { 
-    this.inputBoxRef.value = '';
-  }
+  clearInputBox = () => {
+    this.inputBoxRef.value = "";
+  };
 
   render() {
     return (
       <div className="header-wrapper">
         <div className="header-cont">
           <Link to="/">
-            <h1 className ="logo-header">TuneFlix</h1>
+            <h1 className="logo-header">TuneFlix</h1>
           </Link>
           <div className="input-cont">
             <input
-              ref = {(el) => this.inputBoxRef = el}
+              ref={el => (this.inputBoxRef = el)}
               onKeyPress={this.handleEnter}
               onChange={this.handleInput}
-              placeholder="Search by movie, tv show, or artist"
-              className ="Header-input"
+              placeholder="Search by Movie or TV series"
+              className="Header-input"
             />
             <Link to="/results">
-              <i onClick={this.handleClick} className="material-icons" id ="material-icons-1">
+              <i
+                onClick={this.handleClick}
+                className="material-icons"
+                id="material-icons-1"
+              >
                 search
               </i>
             </Link>
@@ -84,7 +88,7 @@ class Header extends Component {
           <Link to="/results">
             <button style={this.state.style} id="backToResultsButton">
               <i className="material-icons">arrow_left</i>
-              Results <br />
+              <span>Results</span> <br />
             </button>
           </Link>
         </div>

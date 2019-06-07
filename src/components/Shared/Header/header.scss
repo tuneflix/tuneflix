@@ -21,6 +21,16 @@
     justify-content: space-between;
     align-items: center;
 
+    @include mq("mobile") {
+      width: 90vw;
+    }
+    @include mq("tablet") {
+      width: 70vw;
+    }
+    @include mq("standard") {
+      width: 60vw;
+    }
+
     a {
       text-decoration: none;
     }
@@ -30,6 +40,16 @@
       font-family: $first-font;
       color: $third-color;
       font-size: 2.2em;
+
+      @include mq("mobile") {
+        font-size: 1.4em;
+      }
+      @include mq("tablet") {
+        font-size: 1.7em;
+      }
+      @include mq("standard") {
+        font-size: 2em;
+      }
     }
     .input-cont {
       // border: 1px solid white;
@@ -48,6 +68,19 @@
 
         font-family: $second-font;
         color: $fourth-color;
+
+        @include mq("mobile") {
+          width: 40vw;
+          font-size: 0.5em;
+        }
+        @include mq("tablet") {
+          width: 35vw;
+          font-size: 0.8em;
+        }
+        @include mq("standard") {
+          width: 30vw;
+          font-size: 0.8em;
+        }
       }
       input:focus {
         outline: none;
@@ -74,6 +107,42 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+
+      @include mq("mobile") {
+        width: 6vw;
+        border-radius: 5px;
+        span {
+          display: none;
+        }
+      }
+      @include mq("tablet") {
+        width: 6vw;
+        border-radius: 8px;
+        span {
+          display: none;
+        }
+      }
+      @include mq("standard") {
+        width: 6vw;
+        border-radius: 8px;
+        span {
+          display: none;
+        }
+      }
+      @include mq("high-res") {
+        width: 7vw;
+        border-radius: 8px;
+        span {
+          display: block;
+        }
+      }
+      @include mq("wide") {
+        width: 6vw;
+        border-radius: 8px;
+        span {
+          display: block;
+        }
+      }
 
       i {
         margin: 0;

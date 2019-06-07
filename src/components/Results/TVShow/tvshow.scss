@@ -12,11 +12,25 @@
     // border: 1px solid blue;
     width: 80vw;
     // height: 80vh;
-    
+
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
+
+    .loading {
+      color: $third-color;
+      animation: blinker 0.8s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+
+      @keyframes blinker {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    }
     @include mq("mobile") {
       flex-direction: column;
     }
@@ -40,16 +54,16 @@
       // border: 1px solid white;
       // margin-top: 100px;
       // margin-left: 100px;
-      // width: 40vw;
+      width: 40vw;
       height: 50vh;
-     
+
       display: flex;
       flex-direction: column;
       // justify-content: center;
       align-items: center;
       // .song-cards-cont{
       //   border:1px solid blue;
-       
+
       // }
       .tab-cont {
         // border: 1px solid white;
@@ -63,7 +77,6 @@
         align-items: flex-end;
 
         .tab {
-          
           border: none;
           margin-left: 15px;
           border-radius: 0px 5px 0px;
@@ -79,7 +92,6 @@
             font-size: 0.85em;
           }
           @include mq("standard") {
-           
             font-size: 0.85em;
           }
           @include mq("high-res") {
@@ -94,6 +106,9 @@
         }
         .tab:hover {
           background-color: $fourth-color !important;
+        }
+        .tab:focus {
+          outline: none;
         }
       }
       .info-in-view {
@@ -110,7 +125,6 @@
           font-size: 1.5em;
         }
         @include mq("standard") {
-         
           font-size: 1.5em;
         }
         @include mq("high-res") {
@@ -141,7 +155,6 @@
             font-size: 1.5em;
           }
           @include mq("standard") {
-           
             font-size: 1.5em;
           }
           @include mq("high-res") {

@@ -9,172 +9,212 @@
 // }
 
 #results_background {
-    background-image: url(../../wallpaper/nami.png);
-    background-size: auto;
-    width: 100vw;
-    min-height: 100vh;
-    height: fit-content;
-    display: block;
-    position: absolute;
-    // top: 0;
-    // left: 0;
-    // width: 100%;
-    // height: 100%;
-    // z-index: 1;
-    // opacity: .;
+  background-image: url(../../wallpaper/nami.png);
+  background-size: auto;
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  display: block;
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // z-index: 1;
+  // opacity: .;
 }
 
 #instructions {
-    // margin-top: -18vh;
-    font-size: 30px;
-    text-align: center;
-    // margin-right: 10vw;
-    font-weight: bold;
-    color: $third-color;
-    font-style: italic;
+  // margin-top: -18vh;
+  font-size: 30px;
+  text-align: center;
+  // margin-right: 10vw;
+  font-weight: bold;
+  color: $third-color;
+  font-style: italic;
 }
 
 #results {
-    // border: 2px solid white;
-    padding-top: 12vh;
-    padding-bottom: 10vh;
-    display: flex;
+  // border: 2px solid white;
+  padding-top: 12vh;
+  padding-bottom: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: $third-color;
+  font-family: $second-font;
+
+  @include mq("mobile") {
+    flex-direction: column;
+    align-items: center;
+  }
+  @include mq("high-res") {
     flex-direction: row;
-    justify-content: space-evenly;
-    color: $third-color;
+  }
+
+  #underTvShowMoreButton,
+  #underMovShowMoreButton {
+    padding-top: 15vh;
+  }
+
+  .movButtons,
+  .tvButtons {
+    margin-top: 3vh;
+    display: flex;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  button:hover {
+    background-color: $fourth-color;
+  }
+
+  button {
+    border: none;
+    height: 4vh;
+    border-radius: 10px;
+    background-color: $third-color;
     font-family: $second-font;
+    font-size: 1em;
+    color: $second-color;
+    margin: 0.2vw;
+    margin-bottom: 3vh;
+  }
 
-    #underTvShowMoreButton, #underMovShowMoreButton {
-        padding-top: 15vh;
-    }
+  h3 {
+    color: $second-color;
 
-    .movButtons, .tvButtons {
-        margin-top: 3vh;
-        display: flex;
+    @include mq("mobile") {
+      font-size: 1.7em;
     }
+    @include mq("tablet") {
+      font-size: 2em;
+    }
+    @include mq("standard") {
+      font-size: 2.1em;
+    }
+    @include mq("high-res") {
+      font-size: 2.5em;
+    }
+  }
 
-    button:focus {
-        outline: none;
-    }
-    
-    button:hover {
-        background-color: $fourth-color;
-    }
+  .active {
+    transition: height 0.5s ease;
+    overflow: hidden;
+  }
 
-    button {
-        border: none;
-        height: 4vh;
-        border-radius: 10px;
-        background-color: $third-color;
-        font-family: $second-font;
-        font-size: 1em;
-        color: $second-color;
-        margin: .2vw;
-        margin-bottom: 3vh;
-    }
+  .active:not(.active) {
+    display: none;
+  }
 
-    h3 {
-        // text-decoration: underline;
-        color: $second-color;
-        font-size: 2.5em;
-    }
+  .movResults {
+    // border: 1px solid white;
+    color: $second-color;
 
-    .active {
-        transition: height .5s ease;
-        overflow  : hidden;
+    @include mq("mobile") {
+      max-width: 80vw;
+      width: 80vw;
     }
-    
-    .active:not(.active) {
-        display: none;
+    @include mq("tablet") {
+      max-width: 55vw;
     }
+    @include mq("standard") {
+      max-width: 60vw;
+    }
+    @include mq("high-res") {
+      max-width: 40vw;
+    }
+  }
 
-    .movResults {
-        color: $second-color;
-        max-width: 35vw;
-        // background-color: $third-color;
-    }
+  .tvResults {
+    @extend .movResults;
+  }
 
-    .tvResults{
-        @extend .movResults;
-    }
+  .tvActive,
+  .movActive {
+    color: $first-color;
+    // font-size: 32px;
+  }
 
-    .tvActive, .movActive {
-        color: $first-color;
-        // font-size: 32px;
-    }
+  ul {
+    padding-top: 3vh;
+    font-size: 2em;
+    color: $third-color;
+    // text-decoration: none;
+  }
 
-    ul {
-        padding-top: 3vh;
-        font-size: 2em;
-        color: $third-color;
-        // text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+    color: $second-color;
+  }
 
-    
-    a {
-        text-decoration: none;
-        color: $second-color;
-    }
+  a:hover {
+    color: $first-color;
+    cursor: pointer;
+  }
+  li {
+    // border: 1px solid white;
+    list-style-type: none;
+    line-height: 48px;
 
-    a:hover {
-        color: $first-color;
-        cursor: pointer;
-    }
-    li {
-        // border: 1px solid white;
-        list-style-type: none;
-        font-size: 1.1em;
-        line-height: 48px;
-        // text-decoration: none;
+    white-space: nowrap;
+    max-width: 40vw;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-        white-space: nowrap; 
-        max-width: 40vw; 
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        text-overflow: ellipsis; 
+    @include mq("mobile") {
+      font-size: 0.7em;
+      max-width: 75vw;
+    }
+    @include mq("tablet") {
+      font-size: 0.9em;
+      max-width: 70vw;
+    }
+    @include mq("high-res") {
+      font-size: 1.1em;
+      max-width: 70vw;
+    }
+  }
 
-    }
-    
-    li span{
-        visibility: hidden;
-        // display: none;
-        justify-content: center;
-        align-items: center;
-        width: auto;
-        height: auto;
-        text-align: center;
-        line-height: 2vh;
-        padding: 5px;
-        color: $second-color;
-        background: $third-color;
-        font-size: 15px;
-        position: absolute;
-        border-radius: 6px;
-        top: 0px;
-        right: 7.5vw;
+  li span {
+    visibility: hidden;
+    // display: none;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    text-align: center;
+    line-height: 2vh;
+    padding: 5px;
+    color: $second-color;
+    background: $third-color;
+    font-size: 15px;
+    position: absolute;
+    border-radius: 6px;
+    top: 0px;
+    right: 7.5vw;
 
-        opacity: 0;
-        transition: opacity 5s;
-    }
+    opacity: 0;
+    transition: opacity 5s;
+  }
 
-    li span:after {
-        right: 100%; /* To the left of the tooltip */
-        margin-top: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent black transparent transparent;
-    }
-    li:hover {
-        z-index: 2;
-    }
-    li:hover span {
-        visibility: visible;
-        display: flex;
-        opacity: 1;
-    }
-
-   
-     
-    
+  li span:after {
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+  li:hover {
+    z-index: 2;
+  }
+  li:hover span {
+    visibility: visible;
+    display: flex;
+    opacity: 1;
+  }
 }
