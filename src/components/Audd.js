@@ -98,19 +98,19 @@ export default class App extends React.Component {
             className="apple-music-icon"
             id={`appleMusic${i}`}
           >
-            <img src="https://image.flaticon.com/icons/svg/33/33970.svg" />
+            <img src="https://image.flaticon.com/icons/svg/1384/1384061.svg" />
           </a>
         );
       } else if (link.id === "amazon-tunefind") {
         return (
           <a href={link.url} target="_blank" key={i} id={`amazonMusic${i}`}>
-            <img src="https://image.flaticon.com/icons/svg/142/142388.svg" />
+            <img src="https://image.flaticon.com/icons/svg/217/217439.svg" />
           </a>
         );
       } else if (link.id === "spotify-tunefind") {
         return (
           <a href={link.url} target="_blank" key={i}>
-            <img src="https://image.flaticon.com/icons/svg/8/8710.svg" />
+            <img src="https://image.flaticon.com/icons/svg/174/174872.svg" />
           </a>
         );
       }
@@ -144,7 +144,9 @@ export default class App extends React.Component {
             <h3>Artist: {this.state.auddSong.artist}</h3>
             <h3>Album : {this.state.auddSong.album}</h3>
             <h3>Relase Date : {this.state.auddSong.release_date}</h3>
-            <div>{viewLinks}</div>
+            <div className="links-cont">
+              {viewLinks.length > 0 ? viewLinks : <p>No links found</p>}
+            </div>
           </div>
         ) : this.state.noResult ? (
           <p>No result found</p>

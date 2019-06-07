@@ -31,7 +31,7 @@
   }
   @include mq("wide") {
     width: 30vw;
-    height: auto;
+    min-height: 17vh;
   }
   @include mq("extra-wide") {
     width: 25vw;
@@ -89,6 +89,7 @@
       align-items: center;
       button {
         margin-top: 8px;
+        margin-bottom: 5px;
         width: 5vw;
         height: 2.5vh;
         border: none;
@@ -122,21 +123,39 @@
       button:focus {
         outline: none;
       }
-      i {
+      .material-icons {
         color: $third-color;
         margin-left: 5px;
         margin-top: 5px;
+        animation: blinker 0.8s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+
+        @keyframes blinker {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
       }
     }
   }
 
   .auddResult {
-    margin-top: 10px;
+    margin-top: 20px;
     font-family: $second-font;
     color: $second-color;
-    img {
-      max-width: 50px;
-      background-color: white;
+
+    .links-cont {
+      // border: 1px solid white;
+      width: 25vw;
+      display: inline-block;
+
+      img {
+        max-width: 50px;
+        margin-left: 50px;
+        margin-top: 10px;
+      }
     }
   }
 }
