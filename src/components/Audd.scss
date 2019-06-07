@@ -15,27 +15,27 @@
 
   @include mq("mobile") {
     width: 60vw;
-    height: 15vh;
+    height: auto;
   }
   @include mq("tablet") {
     width: 50vw;
-    height: 15vh;
+    height: autp;
   }
   @include mq("standard") {
     width: 40vw;
-    height: 20vh;
+    height: auto;
   }
   @include mq("high-res") {
     width: 35vw;
-    height: 20vh;
+    height: auto;
   }
   @include mq("wide") {
     width: 30vw;
-    height: 20vh;
+    height: auto;
   }
   @include mq("extra-wide") {
     width: 25vw;
-    height: 20vh;
+    height: auto;
   }
 
   .sound-wave {
@@ -82,43 +82,51 @@
     p {
       margin: 0;
       padding: 0;
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
     }
+    .button-cont {
+      display: flex;
+      align-items: center;
+      button {
+        margin-top: 8px;
+        width: 5vw;
+        height: 2.5vh;
+        border: none;
+        border-radius: 5px;
+        background-color: $third-color;
+        color: $second-color;
+        font-family: $second-font;
+        font-weight: bold;
 
-    button {
-      margin-top: 8px;
-      width: 5vw;
-      height: 2.5vh;
-      border: none;
-      border-radius: 5px;
-      background-color: $third-color;
-      color: $second-color;
-      font-family: $second-font;
-      font-weight: bold;
-
-      @include mq("mobile") {
-        width: 15vw;
+        @include mq("mobile") {
+          width: 15vw;
+        }
+        @include mq("tablet") {
+          width: 8vw;
+        }
+        @include mq("standard") {
+          width: 6vw;
+        }
+        @include mq("high-res") {
+          width: 6vw;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+        @include mq("wide") {
+          width: 4vw;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          font-size: 0.85em;
+        }
       }
-      @include mq("tablet") {
-        width: 8vw;
+      button:focus {
+        outline: none;
       }
-      @include mq("standard") {
-        width: 6vw;
+      i {
+        color: $third-color;
+        margin-left: 5px;
+        margin-top: 5px;
       }
-      @include mq("high-res") {
-        width: 6vw;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      @include mq("wide") {
-        width: 4vw;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-size: 0.85em;
-      }
-    }
-    button:focus {
-      outline: none;
     }
   }
 
@@ -126,5 +134,9 @@
     margin-top: 10px;
     font-family: $second-font;
     color: $second-color;
+    img {
+      max-width: 50px;
+      background-color: white;
+    }
   }
 }
