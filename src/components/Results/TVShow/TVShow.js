@@ -33,7 +33,7 @@ function TVShow(props) {
         className="tab"
         style={{
           background:
-            season.season_number === currSeason ?  "#f25757" : "#658c8c"
+            season.season_number === currSeason ? "#f25757" : "#658c8c"
         }}
         key={i}
         onClick={() => {
@@ -74,7 +74,7 @@ function TVShow(props) {
     <div className="wrapper">
       <Header />
       {props.results.imdbLoading ? (
-        <h1>Loading!!!</h1>
+        <h1 className="loading">Loading!!!</h1>
       ) : (
         <div className="tvshow-wrapper">
           {props.results.tvShowIMDB.length > 0 ? (
@@ -95,18 +95,21 @@ function TVShow(props) {
           <div className="tvshow-info-cont">
             <div className="tab-cont">{seasonTabs}</div>
             {displayEpiSongs ? (
-              <div className='song-cards-cont'>
+              <div className="song-cards-cont">
                 <h3 className="info-in-view">Songs in {currEpisode}</h3>
                 <SongCard songResults={songResults} />
               </div>
             ) : tvShowEpisodes.length > 0 ? (
-              <div className='song-cards-cont'>
-                <h3 className="info-in-view">Episodes in Season {currSeason}</h3>
+              <div className="song-cards-cont">
+                <h3 className="info-in-view">
+                  Episodes in Season {currSeason}
+                </h3>
                 <ul>{episodes}</ul>
               </div>
             ) : (
               <h3 className="info-in-view">
-                Due to limited trial data - no episodes available at this time...
+                Due to limited trial data - no episodes available at this time,
+                please try the latest season...
               </h3>
             )}
           </div>
