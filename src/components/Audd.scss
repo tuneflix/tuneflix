@@ -145,16 +145,64 @@
     margin-top: 20px;
     font-family: $second-font;
     color: $second-color;
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
     .links-cont {
       // border: 1px solid white;
-      width: 25vw;
-      display: inline-block;
+      align-items: center;
+      // width: 30vw;
+      // display: inline-block;
+      // text-align: center;
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: flex-start;
 
+      p {
+        text-align: center;
+      }
       img {
         max-width: 50px;
-        margin-left: 50px;
-        margin-top: 10px;
+        margin-right: auto;
+        // border: 1px solid blue;
+   
+        
+
+        // margin-right: 50px;
+        // margin-top: 10px;
+        @include mq("mobile") {
+          max-width: 25px;
+          // margin-left: 30px;
+          // margin-top: 10px;
+        }
+        @include mq("tablet") {
+          max-width: 35px;
+        // margin-left: 35px;
+        // margin-top: 10px;
+        }
+        @include mq("standard") {
+          max-width: 35px;
+          // margin-left: 35px;
+          // margin-top: 10px;
+        }
+        @include mq("high-res") {
+          max-width: 35px;
+        // margin-left: 35px;
+        // margin-top: 10px;
+        }
+        @include mq("wide") {
+          max-width: 35px;
+        // margin-left: 35px;
+        // margin-top: 10px;
+        }
+        @include mq("extra-wide") {
+          max-width: 40px;
+        // margin-left: 40px;
+        // margin-top: 10px;
+        }
       }
     }
   }
