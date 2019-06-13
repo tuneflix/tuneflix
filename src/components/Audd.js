@@ -18,7 +18,11 @@ export default class App extends React.Component {
 
   startRecording = () => {
     this.setState({
-      record: true
+      record: true,
+      auddSong: [],
+      auddSongLinks: [],
+      resReceived: false,
+      noResult: false,
     });
     setTimeout(this.stopRecording, 8000);
   };
@@ -145,11 +149,11 @@ export default class App extends React.Component {
             <h3>Album : {this.state.auddSong.album}</h3>
             <h3>Relase Date : {this.state.auddSong.release_date}</h3>
             <div className="links-cont">
-              {viewLinks.length > 0 ? viewLinks : <p>No links found</p>}
+              {viewLinks.length > 0 ? viewLinks : null}
             </div>
           </div>
         ) : this.state.noResult ? (
-          <p>No result found</p>
+          <p style ={{"textAlign": "center"}}>No result found</p>
         ) : null}
       </div>
     );
